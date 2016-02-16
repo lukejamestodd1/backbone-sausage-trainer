@@ -1,0 +1,62 @@
+/* This is all to make css do what we want it to */
+
+html { box:sizing: border-box; }
+
+/* pseudo selectors have a : eg a:hover */
+/* psuedo element eg div:before div:after */
+/* pseudo elements creates content on the fly */
+/* div:after {
+  content: 'abc';
+  color: red;
+} */
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* This fixes an IE bug */
+main {
+  display: block;
+}
+
+/* Some browsers don't inherit sizes */
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+}
+
+/* Sometimes these don't inherit either */
+a,
+button {
+  color: inherit;
+  transition: .3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Makes images responsive by default - fits fluid container */
+img {
+  max-width: 100%;
+  border: 0;
+  height: auto;
+}

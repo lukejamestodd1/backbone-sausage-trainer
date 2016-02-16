@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sausage trainer</title>
+</head>
+<body>
+
+
+		<div class="users-list">--------USERS LIST
+		</div>
+
+		<div class="activities-list">-------ACTIVITIES LIST
+		</div>
+
+		<div class="activity-detail">-------SINGLE ACTIVITY VIEW
+		</div>
+
+		
+
+<script id="user-item-template" type="text/underscoreTemplate">
+	<div>username - {{username}}</div>
+	<div>email - {{email}}</div>
+</script>
+
+<script id="activity-item-template" type="text/underscoreTemplate">
+	<div>{{title}}</div>
+	<div>{{created_at}}</div>
+</script>
+
+ <script id="activity-detail-view" type="text/moustacheTemplate">
+    <h1>{{ title }}</h1>
+  </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+<script src="models.js"></script>
+<script src="router.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
