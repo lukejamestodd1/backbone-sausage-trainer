@@ -19,19 +19,19 @@ TRAINERS
 
 
 DASH
--Activites table: all where user_id = logged in user_id
+-Activities table: all where user_id = logged in user_id
 	-Activity_types table: find by activity_type_id, show name
 	-Venues table: find by venue_id, show name, address, contact detail/phone no
 
 
 SHOW ALL ACTIVITIES
--Activites: all fields
+-Activities: all fields
 	-Activity_types: find by activity_type_id, show name
 	-Venues: find by venue_id, show name, address, contact/phone
 
 
 SHOW ONE ACTIVITY
--Activites: all
+-Activities: all
 	-Activity_types: activity_type_id, name, description
 	-Venues: venue_id, name, address, contact/phone, location details(for map view)
 -Participants: acvtivity_id, user_id, confirmed, paid
@@ -41,7 +41,7 @@ SHOW ONE ACTIVITY
 SHOW ALL STUDENTS/CONTACTS
 -Users: all
 (to show users that have previously enrolled in an activity by this trainer)
-	-Activites: all where user_id = trainer user_id
+	-Activities: all where user_id = trainer user_id
 		-Participants: all where activity_id = any of the above
 
 
@@ -50,18 +50,18 @@ SEND EMAIL TO STUDENT(S)
 
 
 MAKE NEW ACTIVITY
--Activites: all
+-Activities: all
 -Activity_types: all
 -Venues: all
 
 
 EDIT ACTIVITY
--Activites: all
+-Activities: all
 -Activity_types: all
 -Venues: all
 
 SHOW CALENDAR
--Same as 'show all activites' page
+-Same as 'show all activities' page
 
 
 ---------
@@ -69,41 +69,41 @@ STUDENTS
 ---------
 
 DASH
--Activites table: all fields
+-Activities table: all fields
 	-Activity_types table: activity_type_id, name
 	-Venues table: venue_id, name, address, contact detail/phone no
 	-Users: user_id, name
 
 
-SHOW ALL ACTIVITES
--Activites table: all fields
+SHOW ALL ACTIVITIES
+-Activities table: all fields
 	-Activity_types table: activity_type_id, name
 	-Venues table: venue_id, name, address, contact detail/phone no
 	-Users: user_id, name, email, contact
 
 
 SHOW ONE ACTIVITY
--Activites: all
+-Activities: all
 	-Activity_types: activity_type_id, name, description
 	-Venues: venue_id, name, address, contact/phone, location details(for map view)
 	-Users: user_id, name, email, contact(for trainer contact info)
 
 
 BOOK ACTIVITY
--Activites: all
+-Activities: all
 -Activity_types: all
 -Participants: all
 
 
 SHOW TRAINER DETAILS/PROFILE
 -Users: all
--Activities: all (for recent activites)
--Activity_types: (for names of recent activites)
+-Activities: all (for recent activities)
+-Activity_types: (for names of recent activities)
 -Venues: for recent activity locations
 
 
 SHOW CALENDAR
--Same as 'show all activites' page
+-Same as 'show all activities' page
 
 
 
