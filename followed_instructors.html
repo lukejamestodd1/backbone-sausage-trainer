@@ -49,48 +49,45 @@
 
   <div class="container">
     <div class="dash-title">
-      <img src="http://placehold.it/140x100" alt="" class="avatar">
-      <h1 class="header-title">Your Contacts - Trainers</h1>
+      <h1 class="header-title">Who You're Following</h1>
       <ul class="nav nav-tabs navbar-right tabs-title">
-        <li role="presentation" class="active"><a href="classes.html">Classes</a></li>
-        <li role="presentation"><a href="#">Calendar</a></li>
-        <li role="presentation"><a href="view_all_students.html">Contacts</a></li>
+        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
+        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
+        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
       </ul>
     </div>
-    
     <hr class="colorgraph">
 
-    <div class="container-fluid title-colourgraph">
-      <h3>Your Contacts</h3>
-      <button href="message_students.html">Message</button>
-      <div class="table-responsive col-xs-12">
+    <div class="table-responsive col-xs-12 col-md-12">
 
-        <div class="row">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th class="col-xs-2">Name</th>
-                <th class="col-xs-10">Email</th>
-              </tr>
-            </thead>
-            <tbody class="users-list">
-              <tr>
-                <!-- TEMPLATED WITH INFO FROM USERS TABLE
-                <th><input type="checkbox"></th>
-                <th>{{ student name }}</a></th> -->
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-xs-3 col-md-4">Trainers Name</th>
+              <th class="col-xs-4 col-md-3">Date of Next Class</th>
+              <th class="col-xs-5 col-md-5">Name of Next Class</th>
+            </tr>
+          </thead>
+          <tbody class="users-list">
+            
+            <!-- TEMPLATED WITH USER INFO <tr>
+              <th><a href="profile.html">{{ trainer name }}</a></th>
+              <th>{{ Date next class }}</th>
+              <th><a href="student_show.html">{{ next class name }}</a></th>
+            </tr> -->
+
+          </tbody>
+        </table>
       </div>
-    
     </div>
 
   </div>
-  
-  <script id="user-item-template" type="text/underscoreTemplate">
-    <th><input type="checkbox">       {{username}}</th>
-    <th>{{ email }}</a></th>
+
+<script id="user-item-template" type="text/underscoreTemplate">
+    <th><a href="profile.html">{{  username }}</a></th>
+    <th>{{ email }}</th>
+    <th><a href="student_show.html">{{ local_timezone }}</a></th>
   </script>
 
 
@@ -104,3 +101,6 @@
 
 </body>
 </html>
+
+
+
