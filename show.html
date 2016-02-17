@@ -47,10 +47,16 @@
   <!-- Find a background photo of a class, add opacity to it. Have the form on top of it -->
 
   <div class="activity-detail">
-    
+  </div>
+  
+    <div class="user-detail">
   </div>
 
-  
+  <div class="venue-detail">
+  </div>
+
+   <div class="activity-type-detail">
+  </div>
 
   <script id="activity-detail-view" type="text/moustacheTemplate">
       <h1>{{ title }}</h1>
@@ -63,8 +69,26 @@
       <p>{{ max_size }}</p>
       <h2>Price</h2>
       <p>${{ cost }}.00</p>
+      <h2>Activity ID</h2>
+      <p>{{ id }}</p>
       <button>Edit this class</button>
   </script>
+
+  <script id="user-item-template" type="text/underscoreTemplate">
+  <div>username - {{username}}</div>
+  <div>email - {{email}}</div>
+</script>
+
+<script id="venue-item-template" type="text/underscoreTemplate">
+  <div>Venue Name - {{name}}</div>
+  <div>address - {{address}}</div>
+  <div>description - {{description}}</div>
+</script>
+
+<script id="activity-type-item-template" type="text/underscoreTemplate">
+  <div>Activity Name - {{name}}</div>
+  <div>description - {{description}}</div>
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>

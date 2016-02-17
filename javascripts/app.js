@@ -10,7 +10,7 @@ Backbone.history.start();
 //========== VIEWS ===========//
 
 
-//card creator classes using underscore templates	
+//for a list of users
 var UserItemView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'ui-card',
@@ -18,12 +18,11 @@ var UserItemView = Backbone.View.extend({
 	render: function() {
 		var html = Mustache.render(this.template, this.model.toJSON());
 		this.$el.html(html);
-		console.log(html);
 		return this;
 	}
 });
 
-
+//for list of activities on main page
 var ActivityItemView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'ui-card',
@@ -31,12 +30,11 @@ var ActivityItemView = Backbone.View.extend({
 	render: function() {
 		var html = Mustache.render(this.template, this.model.toJSON());
 		this.$el.html(html);
-		console.log(html);
 		return this;
 	}
 });
 
-
+//for detailed view of a single activity
 var ActivityDetailView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'container',
@@ -44,7 +42,30 @@ var ActivityDetailView = Backbone.View.extend({
 	render: function(){
 		var html = Mustache.render(this.template, this.model.toJSON());
 		this.$el.html(html);
-		console.log(html);
+		return this;
+	}
+});
+
+//for "show activity" page - venue info
+var VenueDetailView = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#venue-item-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template, this.model.toJSON());
+		this.$el.html(html);
+		return this;
+	}
+});
+
+//for "show activity" page - activity type (to get name)
+var ActivityTypeDetailView = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#activity-detail-item-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template, this.model.toJSON());
+		this.$el.html(html);
 		return this;
 	}
 });

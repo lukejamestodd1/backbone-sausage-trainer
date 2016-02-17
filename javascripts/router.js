@@ -44,26 +44,57 @@ var Router = Backbone.Router.extend({
 		});
 
 		//shows one activity
+		// console.log('index page function');
+		// var activity = new Activity({id: 11});
+		// activity.fetch().done(function(){
+		// 	//make a view showing the activity
+		// 	var activityView = new ActivityDetailView({model: activity});
+		// 	$('.activity-detail').append(activityView.render().el);
+		// });
+
+		//show one activity plus trainer info,
+		//venue info, participants list
+		console.log('SHOW PAGE');
 		var activity = new Activity({id: 11});
 		activity.fetch().done(function(){
 			//make a view showing the activity
 			var activityView = new ActivityDetailView({model: activity});
 			$('.activity-detail').append(activityView.render().el);
+
+			var instructor = new User({id: activity.get('user_id')});
+			instructor.fetch().done(function(){
+				var instructorView = new UserItemView({model: instructor});
+				$('.user-detail').append(instructorView.render().el);
+
+				var venue = new Venue({id: activity.get('venue_id')});
+				venue.fetch().done(function(){
+					var venueView = new VenueDetailView({model: venue});
+					$('.venue-detail').append(venueView.render().el);
+
+					var activityType = new ActivityType({id: activity.get('activity_type_id')});
+					activityType.fetch().done(function(){
+						var activityTypeView = new ActivityTypeDetailView({model: activityType});
+						$('.activity-type-detail').append(activityTypeView.render().el);
+					});
+				});
+			});
 		});
+
 		
+
+
+
+		//var participants = new Participants({activity_id: activity[:id]});
 	},
 
 	showSingleActivity: function(){
-
-		//hide previous page
 		console.log('HELLO');
-		//find the activity
-		var activity = new Activity({id: 1});
-		activity.fetch();
-
-		//make a view showing the activity
-		var activityView = new ActivityDetailView({model: activity})
-		$('.activity-detail').append(view.render().el);
+		var activity = new Activity({id: 12});
+		activity.fetch().done(function(){
+	
+			var activityView = new ActivityDetailView({model: activity})
+			$('.activity-detail').append(view.render().el);
+		});
 	}
 	
 	// showDash: function(){
