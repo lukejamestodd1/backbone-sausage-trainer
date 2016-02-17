@@ -54,6 +54,7 @@ var Router = Backbone.Router.extend({
 
 		//show one activity plus trainer info,
 		//venue info, participants list
+		//change from hard coded when more data exists in DB
 		console.log('SHOW PAGE');
 		var activity = new Activity({id: 11});
 		activity.fetch().done(function(){
@@ -66,11 +67,13 @@ var Router = Backbone.Router.extend({
 				var instructorView = new UserItemView({model: instructor});
 				$('.user-detail').append(instructorView.render().el);
 
+				//need more venue data in DB for this to work
 				var venue = new Venue({id: activity.get('venue_id')});
 				venue.fetch().done(function(){
 					var venueView = new VenueDetailView({model: venue});
 					$('.venue-detail').append(venueView.render().el);
 
+					//need more data in DB for this to work
 					var activityType = new ActivityType({id: activity.get('activity_type_id')});
 					activityType.fetch().done(function(){
 						var activityTypeView = new ActivityTypeDetailView({model: activityType});
