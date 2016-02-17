@@ -1,10 +1,3 @@
-console.log('sausage trainer')
-
-//========== ROUTER ========= //
-
-
-var router = new Router();
-Backbone.history.start();
 
 
 //========== VIEWS ===========//

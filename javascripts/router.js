@@ -1,25 +1,33 @@
-var app = {}
+
+var sausageTrainerApp = {} //wrap it all in app object when finished
+
+
+//========== ROUTER ========= //
+
 
 var Router = Backbone.Router.extend({
+	
 	routes: {
 		"": "showIndex",
-		"show/": "showSingleActivity"
-		// "dash/": "showDash",
-		
+		"session/new": "login",
+		"user/new": "signUp",
 
-		// "users/": "showUsers",
-		// "activities/": "showActivities",
+		"trainer/dash": "trainerDash", 
+		"trainer/activities": "trainerActivitesList", 
+		"trainer/activities/:id": "trainerActivityDetails",
+		"trainer/activities/new": "trainerActivityCreate",
+		"trainer/activities/edit": "trainerActivityEdit", 
+		"trainer/contacts": "trainerContactsList",
+		"trainer/contacts/message": "trainerSendMessage",
+		"trainer/calendar": "trainerCalendar",
 
-		// "login/": "showLogin",
-		// "sign_up/": "showSignUp",
-		
-		
-		// "users/:id" : "showUser",
-		// "users/new": "newUser",
-		// "activities/new": "newActivity",		
-		// "venues": "showVenues",
-		// "venues/:id": "showVenue"
-		
+		"student/dash": "studentDash",
+		"student/activities": "studentActivitesList", 
+		"student/activities/:id": "studentActivityDetails",
+		"student/activities/:id/book": "studentActivityBook", 
+		"student/contacts": "studentContactsList",
+		"student/contacts/:id": "studentTrainerDetail",
+		"student/calendar": "studentCalendar"	
 	},
 
 	//wrap the index page in a view so can press back
@@ -91,43 +99,84 @@ var Router = Backbone.Router.extend({
 				});
 			});
 		});
-
-		
-
-
-
-		//var participants = new Participants({activity_id: activity[:id]});
 	},
 
-	showSingleActivity: function(){
-		console.log('HELLO');
-		var activity = new Activity({id: 12});
-		activity.fetch().done(function(){
-	
-			var activityView = new ActivityDetailView({model: activity})
-			$('.activity-detail').append(view.render().el);
-		});
+	login: function(){
+
+	},
+
+	signUp: function(){
+
+	},
+
+	trainerDash: function(){
+
+	},
+
+	trainerActivitesList: function(){
+
+	},
+
+	trainerActivityDetails: function(){
+
+	},
+
+	trainerActivityCreate: function(){
+
+	},
+
+	trainerActivityEdit: function(){
+
+	},
+
+	trainerContactsList: function(){
+
+	},
+
+	trainerSendMessage: function(){
+
+	},
+
+	trainerCalendar: function(){
+
+	},
+
+	studentDash: function(){
+
+	},
+
+	studentActivitesList: function(){
+
+	},
+
+	studentActivityDetails: function(){
+
+	},
+
+	studentActivityBook: function(){
+
+	},
+
+	studentContactsList: function(){
+
+	},
+
+	studentTrainerDetail: function(){
+
+	},
+
+	studentCalendar: function(){
+
 	}
-	
-	// showDash: function(){
-
-	// 	//hide the previous page
-
-	// 	//find the right user from API
-	// 	var user = new User({ id: id});
-	// 	user.fetch();
-
-	// 	//find classes that belong to same user id
-	// 	var activities = new Activities //(filter by user ID)
-
-	// 	//create a view to show username, photo, activites
-	// 	var userDashView = new UserDashView({ model: user});
-
-	// 	//append to container on dash.html
-	// 	$('#si').append(view.render().el);
-	// },
-
-	
-
-	
+		
 });
+
+var router = new Router();
+Backbone.history.start();
+
+
+
+
+
+
+

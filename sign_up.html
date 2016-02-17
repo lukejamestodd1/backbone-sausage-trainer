@@ -47,60 +47,54 @@
 
   </nav>
 
+  <!-- Find a background photo of a class, add opacity to it. Have the form on top of it -->
   <div class="container">
-    <div class="dash-title">
-      <h1 class="header-title">Who You're Following</h1>
-      <ul class="nav nav-tabs navbar-right tabs-title">
-        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
-        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
-        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
-      </ul>
-    </div>
-    <hr class="colorgraph">
 
-    <div class="table-responsive col-xs-12 col-md-12">
-
+    <div class="sign-up-form-box">
       <div class="row">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="col-xs-3 col-md-4">Trainers Name</th>
-              <th class="col-xs-4 col-md-3">Date of Next Class</th>
-              <th class="col-xs-5 col-md-5">Name of Next Class</th>
-            </tr>
-          </thead>
-          <tbody class="users-list">
-            
-            <!-- TEMPLATED WITH USER INFO <tr>
-              <th><a href="profile.html">{{ trainer name }}</a></th>
-              <th>{{ Date next class }}</th>
-              <th><a href="student_show.html">{{ next class name }}</a></th>
-            </tr> -->
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-sm-offset-2 col-md-offset-3">
+          <form>
+            <h2>Sign Up</h2>
+            <h4>Already have an account? Login <a href="">here</a></h4>
+            <hr class="colorgraph">
+            <div class="row">
+              <div class="form-group">
+                <label for="">Username</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Password Confirmation</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label>Add a photo</label>
+                <input type="file">
+              </div>
+              <div class="btn-group-verical" role="group">
+                <label for="">Select those that apply to you: </label>
+                <input type="checkbox">  I am an instructor
+                <input type="checkbox">  I am a student
+              </div>
+            </div>
 
-          </tbody>
-        </table>
+            <hr class="colorgraph">
+            <div class="row form-btn">
+              <div class="col-xs-12 col-md-6 col-md-offset-3"><button>Sign Up</button></div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
   </div>
-
-<script id="user-item-template" type="text/underscoreTemplate">
-    <th><a href="profile.html">{{  username }}</a></th>
-    <th>{{ email }}</th>
-    <th><a href="student_show.html">{{ local_timezone }}</a></th>
-  </script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
-<script src="javascripts/models.js"></script>
-<script src="javascripts/router.js"></script>
-<script src="javascripts/views.js"></script>
-
+  
 </body>
 </html>
-
-
-
