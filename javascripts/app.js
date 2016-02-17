@@ -13,7 +13,7 @@ Backbone.history.start();
 //for a list of users
 var UserItemView = Backbone.View.extend({
 	tagName: 'div',
-	className: 'ui-card',
+	className: 'container',
 	template: $('#user-item-template').html(),
 	render: function() {
 		var html = Mustache.render(this.template, this.model.toJSON());
@@ -64,6 +64,18 @@ var ActivityTypeDetailView = Backbone.View.extend({
 	className: 'container',
 	template: $('#activity-detail-item-template').html(),
 	render: function(){
+		var html = Mustache.render(this.template, this.model.toJSON());
+		this.$el.html(html);
+		return this;
+	}
+});
+
+//for "show activity" page - list of participants
+var ParticipantItemView = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#participant-item-template').html(),
+	render: function() {
 		var html = Mustache.render(this.template, this.model.toJSON());
 		this.$el.html(html);
 		return this;

@@ -58,14 +58,17 @@
    <div class="activity-type-detail">
   </div>
 
+  <div class="participants-list">
+  </div>
+
   <script id="activity-detail-view" type="text/moustacheTemplate">
       <h1>{{ title }}</h1>
       <hr class="colorgraph">
       <h2>start time: {{ start_time }}</h2>
-      <p> duration: {{ duration }}</p>
+      <p> duration: {{ duration }} hours</p>
       <h2>Class Description</h2>
       <p>{{ description }}</p>
-      <h2>Max attendees</h2>
+      <h2>Class Size</h2>
       <p>{{ max_size }}</p>
       <h2>Price</h2>
       <p>${{ cost }}.00</p>
@@ -75,11 +78,13 @@
   </script>
 
   <script id="user-item-template" type="text/underscoreTemplate">
-  <div>username - {{username}}</div>
+  <div>---TRAINER DETAILS---</div>
+  <div>name - {{username}}</div>
   <div>email - {{email}}</div>
 </script>
 
 <script id="venue-item-template" type="text/underscoreTemplate">
+  <div>---VENUE DETAILS---</div>
   <div>Venue Name - {{name}}</div>
   <div>address - {{address}}</div>
   <div>description - {{description}}</div>
@@ -88,6 +93,12 @@
 <script id="activity-type-item-template" type="text/underscoreTemplate">
   <div>Activity Name - {{name}}</div>
   <div>description - {{description}}</div>
+</script>
+
+<script id="participant-item-template" type="text/underscoreTemplate">
+  <div>---PARTICIPANTS---</div>
+  <div>Confirmed? - {{confirmed}}</div>
+  <div>Paid? - {{paid}}</div>
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>

@@ -56,7 +56,7 @@ var Router = Backbone.Router.extend({
 		//venue info, participants list
 		//change from hard coded when more data exists in DB
 		console.log('SHOW PAGE');
-		var activity = new Activity({id: 11});
+		var activity = new Activity({id: 22});
 		activity.fetch().done(function(){
 			//make a view showing the activity
 			var activityView = new ActivityDetailView({model: activity});
@@ -78,6 +78,15 @@ var Router = Backbone.Router.extend({
 					activityType.fetch().done(function(){
 						var activityTypeView = new ActivityTypeDetailView({model: activityType});
 						$('.activity-type-detail').append(activityTypeView.render().el);
+
+						//shows all participants with this activity id
+						var participants = new Participants({activity_id: activity.get('activity_id')});
+						participants.fetch().done(function() {
+							participants.each(function(attendee) {
+								var view = new ParticipantItemView({ model: attendee});
+								$('.participants-list').append(view.render().el);
+							});
+						});
 					});
 				});
 			});
