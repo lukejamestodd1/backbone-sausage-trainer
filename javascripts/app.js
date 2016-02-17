@@ -12,8 +12,8 @@ Backbone.history.start();
 
 //for a list of users
 var UserItemView = Backbone.View.extend({
-	tagName: 'div',
-	className: 'container',
+	tagName: 'tr',
+	// className: '',
 	template: $('#user-item-template').html(),
 	render: function() {
 		var html = Mustache.render(this.template, this.model.toJSON());

@@ -97,6 +97,13 @@ BOOK ACTIVITY
 -Participants: all
 
 
+SHOW ALL TRAINER CONTACTS
+-Contacts: all
+-Users: user_id, name
+-Activities: date, user_id
+-Venues: activity_id, name, address
+
+
 SHOW TRAINER DETAILS/PROFILE
 -Users: all
 -Activities: all (for recent activities)
