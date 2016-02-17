@@ -39,6 +39,7 @@ SHOW ONE ACTIVITY
 
 
 SHOW ALL STUDENTS/CONTACTS
+-Contacts: all
 -Users: all
 (to show users that have previously enrolled in an activity by this trainer)
 	-Activities: all where user_id = trainer user_id
@@ -46,6 +47,7 @@ SHOW ALL STUDENTS/CONTACTS
 
 
 SEND EMAIL TO STUDENT(S)
+-Contacts
 -Users
 
 
