@@ -1,5 +1,6 @@
 
-var sausageTrainerApp = {} //wrap it all in app object when finished
+//wrap it all in app object when finished
+var sausageTrainerApp = {};
 
 
 //========== ROUTER ========= //
@@ -13,7 +14,7 @@ var Router = Backbone.Router.extend({
 		"user/new": "signUp",
 
 		"trainer/dash": "trainerDash", 
-		"trainer/activities": "trainerActivitesList", 
+		"trainer/activities": "trainerActivitiesList", 
 		"trainer/activities/:id": "trainerActivityDetails",
 		"trainer/activities/new": "trainerActivityCreate",
 		"trainer/activities/edit": "trainerActivityEdit", 
@@ -22,7 +23,7 @@ var Router = Backbone.Router.extend({
 		"trainer/calendar": "trainerCalendar",
 
 		"student/dash": "studentDash",
-		"student/activities": "studentActivitesList", 
+		"student/activities": "studentActivitiesList", 
 		"student/activities/:id": "studentActivityDetails",
 		"student/activities/:id/book": "studentActivityBook", 
 		"student/contacts": "studentContactsList",
@@ -30,8 +31,22 @@ var Router = Backbone.Router.extend({
 		"student/calendar": "studentCalendar"	
 	},
 
-	//wrap the index page in a view so can press back
 	showIndex: function(){
+
+		// loading external mustache templates - not working atm
+			var loadNavBar = function() {
+			  console.log('Loading navbar template');
+			  $.get('http://localhost:8000/template/navBarTemplate.mst', function(template) {
+			    var rendered = Mustache.render(template, {loginStatus: 'logout'});
+			    $('body').append(rendered);
+			  })
+			};
+
+			var init = function() {
+			  loadNavBar();
+			};
+
+			$( document ).ready( init );
 
 		//shows all users
 		var users = new Users();
@@ -42,7 +57,7 @@ var Router = Backbone.Router.extend({
 			});
 		});
 
-		//shows all activites
+		//shows all activities
 		var activities = new Activities();
 		activities.fetch().done(function(){
 			activities.each(function(instance){
@@ -102,7 +117,7 @@ var Router = Backbone.Router.extend({
 	},
 
 	login: function(){
-
+		console.log("HELLO LOGIN");
 	},
 
 	signUp: function(){
@@ -113,7 +128,8 @@ var Router = Backbone.Router.extend({
 
 	},
 
-	trainerActivitesList: function(){
+	trainerActivitiesList: function(){
+
 
 	},
 
@@ -130,7 +146,13 @@ var Router = Backbone.Router.extend({
 	},
 
 	trainerContactsList: function(){
-
+		var contacts = new Contacts();
+		contacts.fetch().done(function() {
+			contacts.each(function(person) {
+				var contactsList = new UserItemView({ model: person});
+				$('.users-list').append(view.render().el);
+			});
+		});
 	},
 
 	trainerSendMessage: function(){
@@ -145,7 +167,7 @@ var Router = Backbone.Router.extend({
 
 	},
 
-	studentActivitesList: function(){
+	studentActivitiesList: function(){
 
 	},
 

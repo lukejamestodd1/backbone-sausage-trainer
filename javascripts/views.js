@@ -1,7 +1,44 @@
 
 
-//========== VIEWS ===========//
+//========== WHOLE PAGE VIEWS ===========//
 
+var IndexView = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#index-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template, this.model.toJSON());
+		this.$el.html(html);
+		return this;
+	}
+});
+
+var LoginView = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#login-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template, this.model.toJSON());
+		this.$el.html(html);
+		return this;
+	}
+});
+
+var SignUpView = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#signup-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template, this.model.toJSON());
+		this.$el.html(html);
+		return this;
+	}
+});
+
+
+
+
+//========== PAGE SECTION VIEWS ===========//
 
 //for a list of users
 var UserItemView = Backbone.View.extend({
