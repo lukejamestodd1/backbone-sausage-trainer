@@ -40,6 +40,43 @@ var SignUpView = Backbone.View.extend({
 
 //========== PAGE SECTION VIEWS ===========//
 
+
+//for student dashboard
+var StudentDashboard = Backbone.View.extend({
+	tagName: 'div',
+	className: 'dash-title',
+	template: $('#student-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template);
+		this.$el.html(html);
+		return this;
+	}
+});
+
+//for trainer contacts list container
+var ContactsListContainer = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#trainer-contacts-list-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template);
+		this.$el.html(html);
+		return this;
+	}
+});
+
+//for student contacts list container
+var TrainersListContainer = Backbone.View.extend({
+	tagName: 'div',
+	className: 'container',
+	template: $('#student-contacts-list-template').html(),
+	render: function(){
+		var html = Mustache.render(this.template);
+		this.$el.html(html);
+		return this;
+	}
+});
+
 //for a list of users
 var UserItemView = Backbone.View.extend({
 	tagName: 'tr',
