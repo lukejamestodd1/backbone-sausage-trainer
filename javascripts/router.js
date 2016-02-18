@@ -107,7 +107,10 @@ var Router = Backbone.Router.extend({
 	},
 
 	signUp: function(){
+		setupBody();
 
+		var footer = new FooterView();
+    $('body').append(footer.render().el);
 	},
 
 	trainerDash: function(){
@@ -198,10 +201,16 @@ var Router = Backbone.Router.extend({
 
 	trainerActivityCreate: function(){
 		setupBody();
+		setupMenu();
+		$('.header-title').html('New Activity');
+		
 	},
 
 	trainerActivityEdit: function(){
-
+		setupBody();
+		setupMenu();
+		$('.header-title').html('Edit Activity');
+		
 	},
 
 	
