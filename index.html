@@ -40,18 +40,22 @@
           <a href="">Home</a>
         </li>
         <li>
-          <a href="">About</a>
+          <a href="#trainer/contacts">trainerContacts</a>
+        </li>
+        <li>
+          <a href="#student/contacts">studentContacts</a>
         </li>
         <li>
           <a href="#login"><span class="glyphicon glyphicon-user"></span> Login</a>
         </li>
         <li>
-          <a href="contact.html"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a>
+          <a href="#signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a>
         </li>
       </ul>
     </div>
   </div>
 </script>
+
 <script id="carouselTemplate" type="text/mustacheTemplate">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -89,6 +93,7 @@
       <span class="icon-next"></span>
   </a>
 </script>
+
 <script id="splashMainTemplate" type="text/mustacheTemplate">
   <div class="container">
     <div class="row">
@@ -126,12 +131,87 @@
     </div>
   </div>
 </script>
+
 <script id="footerTemplate" type="text/MustacheTemplate">
   <div class="container">
     <a href="link_to_our_github_repo"><i class="fa fa-github fa-2x gh-symbol"></i></a>
     <p class="text-muted"><i class="fa fa-copyright"></i>This website is fully owned by TeamSaus productions</p>
   </div>
 </script>
+
+<script id="trainer-contacts-list-template" type="text/mustacheTemplate">
+  
+    <div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Contacts - Trainers</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="classes.html">Classes</a></li>
+        <li role="presentation"><a href="#">Calendar</a></li>
+        <li role="presentation"><a href="view_all_students.html">Contacts</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid title-colourgraph">
+      <h3>Your Contacts</h3>
+      <button href="message_students.html">Message</button>
+      <div class="table-responsive col-xs-12">
+
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-xs-2">Name</th>
+                <th class="col-xs-10">Email</th>
+              </tr>
+            </thead>
+            <tbody class="users-list">
+              <tr>
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</script>
+
+<script id="student-contacts-list-template" type='text/underscoreTemplate'>
+    <div class="dash-title">
+      <h1 class="header-title">Who Youre Following</h1>
+      
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
+        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
+        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
+      </ul>
+    </div>
+    <hr class="colorgraph">
+
+    <div class="table-responsive col-xs-12 col-md-12">
+
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-xs-3 col-md-4">Trainers Name</th>
+              <th class="col-xs-4 col-md-3">Date of Next Class</th>
+              <th class="col-xs-5 col-md-5">Name of Next Class</th>
+            </tr>
+          </thead>
+          <tbody class="users-list">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+</script>
+
+<script id="user-item-template" type="text/mustacheTemplate">
+    <th><input type="checkbox">       {{username}}</th>
+    <th>{{ email }}</a></th>
+  </script>
 
 <script src="javascripts/models.js"></script>
 <script src="javascripts/views.js"></script>
