@@ -244,3 +244,15 @@ var ColourBar = Backbone.View.extend({
     return this;
   }
 });
+
+//for trainers to send message
+var TrainerSendMessageView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#trainer-send-message-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});

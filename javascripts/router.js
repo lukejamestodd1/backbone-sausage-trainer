@@ -40,7 +40,7 @@ var Router = Backbone.Router.extend({
 		"trainer/activities/:id": "trainerActivityDetails",
 		// "trainer/activities/new": "trainerActivityCreate",
 		// "trainer/activities/edit": "trainerActivityEdit",
-		// "trainer/contacts/message": "trainerSendMessage",
+		"trainer/contacts/message": "trainerSendMessage",
 		
 		"student/dash": "studentDash",
 		"student/activities": "studentActivitiesList",
@@ -154,13 +154,19 @@ var Router = Backbone.Router.extend({
 		activityItem.fetch().done(function(){
 			var trainerActivityDetails = new ActivityDetailView({model: activityItem});
 			$('body').append(trainerActivityDetails.render().el);
+
 		});
 		
 		
 	},
 
 	trainerActivityCreate: function(){
-
+		setupBody();
+		var mainContainer = new MainContainer();
+		$('body').append(mainContainer.render().el);
+		var header = new TrainerHeader();
+		$('.main').append(header.render().el);
+		$('.header-title').html('New Activity');
 	},
 
 	trainerActivityEdit: function(){
@@ -169,7 +175,9 @@ var Router = Backbone.Router.extend({
 
 	
 	trainerSendMessage: function(){
-
+		setupBody();
+		var sendMessageView = new TrainerSendMessageView();
+		$('body').append(sendMessageView.render().el);
 	},
 
 	

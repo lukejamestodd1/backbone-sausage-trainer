@@ -530,7 +530,7 @@
 
 <script id="trainer-header-template" type="text/mustacheTemplate">
       <img src="http://placehold.it/140x100" alt="" class="avatar">
-      <h1 class="header-title">{{activity_type_name}}</h1>
+      <h1 class="header-title"></h1>
       <ul class="nav nav-tabs navbar-right tabs-title">
         <li role="presentation" class="active"><a href="#trainer/activities">Classes</a></li>
         <li role="presentation"><a href="#trainer/calendar">Calendar</a></li>
@@ -541,6 +541,36 @@
 <script id="colour-bar-template" type="text/mustacheTemplate">
   <hr class="colorgraph">
 </script>
+
+<script id="trainer-send-message-template" type="text/mustacheTemplate">
+  <div class="sign-up-form-box">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-sm-offset-2 col-md-offset-3">
+          <form>
+            <h2>Message Students</h2>
+            <hr class="colorgraph">
+            <div class="row">
+              <div class="form-group">
+                <label for="">Email Title</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Enter Message</label>
+                <textarea class="form-control input-lg" rows="6" placeholder="Write your message to the selected students"></textarea>
+              </div>
+            </div>
+
+            <hr class="colorgraph">
+            <div class="row form-btn">
+              <div class="col-xs-12 col-md-6 col-md-offset-3 form-btn"><button>Send Message</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</script>
+
+
 
 <script src="javascripts/models.js"></script>
 <script src="javascripts/views.js"></script>
