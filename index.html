@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
   <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -25,7 +25,7 @@
 <script id="navBarTemplate" type="text/mustacheTemplate">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle nav-color" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -34,7 +34,7 @@
       <a class="navbar-brand" href="index.html">Sausage Trainers</a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse nav-color" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a href="">Home</a>
@@ -66,21 +66,21 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+      <div class="fill fill1"></div>
       <div class="carousel-caption">
-        <h2>Caption 1</h2>
+        <h2>The #1 Personal Trainer Tool</h2>
       </div>
     </div>
     <div class="item">
-      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+      <div class="fill fill2"></div>
       <div class="carousel-caption">
-        <h2>Caption 2</h2>
+        <h2>Manage Your Bookings</h2>
       </div>
     </div>
     <div class="item">
-      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+      <div class="fill fill3"></div>
       <div class="carousel-caption">
-        <h2>Caption 3</h2>
+        <h2>Use For Any Group Activity</h2>
       </div>
     </div>
   </div>
@@ -96,13 +96,24 @@
 
 <script id="splashMainTemplate" type="text/mustacheTemplate">
   <div class="container">
-    <div class="row">
+    <div class="row row-index">
 
-      <h1 class="col-12">Let Sausage trainers run you business</h1>
+      <img src="http://news.bbcimg.co.uk/media/images/67059000/jpg/_67059362_stress109350399.jpg" class="col-xs-12 col-sm-12 col-md-5 col-lg-5 pull-right">
 
-      <p class="col-xs-12 col-sm-12 col-md-5 col-lg-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eius animi molestiae commodi repellat laborum voluptas ad numquam aliquam culpa libero odit, officiis, aut quibusdam. Praesentium velit a alias. Facere.</p>
+      <h1 class="col-xs-12 col-sm-12 col-md-6 col-lg-6">Admin Getting the Best of You?</h1>
 
-      <img src="http://placehold.it/350x150" class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+      <p class="col-xs-12 col-sm-12 col-md-6 col-lg-6">Remember when the student didn't have the money to pay for this weeks class only to disappear and never be heard from again? Or when you were turning people away from your fully booked class to see half of the participants not turn up? Sausage Trainers was designed for you.</p>'
+    </div>
+
+    <div class="row row-index">
+
+      <img src="http://www.zestrockingham.com.au/wp-content/uploads/2011/11/ptrainer.jpg" class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+
+      <h1 class="col-xs-12 col-sm-12 col-md-5 col-lg-5 pull-right">Get Back to What You do Best</h1>
+
+      <p class="col-xs-12 col-sm-12 col-md-5 col-lg-5 pull-right">Sausage Trainers was designed to stop this from happening, making your life easier and time more valuable. Combining an easy booking, payment and calendar system you never have to worry about these problems again.</p>
+    </div>
+
     </div>
   </div>
 </script>
