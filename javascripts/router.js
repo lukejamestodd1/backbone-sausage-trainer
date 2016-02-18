@@ -69,7 +69,7 @@ var Router = Backbone.Router.extend({
 
 		"student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
-		//	"student/contacts/:id": "studentTrainerDetail",
+		"student/users/:id": "studentTrainerDetail",
 
 		"testing": "testingArea"
 		
@@ -116,7 +116,7 @@ var Router = Backbone.Router.extend({
 	trainerDash: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Your Dashboard');
+		$('.header-title').html('Dashboard');
 		$('#dashTab').addClass("active");
 		var trainerDash = new TrainerDashContainerView();
 		$('.main').append(trainerDash.render().el);
@@ -125,7 +125,7 @@ var Router = Backbone.Router.extend({
 	trainerActivitiesList: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Your Classes');
+		$('.header-title').html('My Classes');
 		$('#classesTab').addClass("active");
 		
 		var trainersActivityList = new TrainerActivitiesListView();
@@ -144,7 +144,7 @@ var Router = Backbone.Router.extend({
 	trainerCalendar: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Your Calendar');
+		$('.header-title').html('Calendar');
 		$('#dashTab').addClass("active");
 
 		var trainerCalendar = new TrainerCalendarView();
@@ -171,7 +171,7 @@ var Router = Backbone.Router.extend({
 	trainerContactsList: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Your Contacts');
+		$('.header-title').html('Contacts');
 		$('#contactsTab').addClass("active");
 
 		var contactListContainer = new ContactListContainerView();
@@ -186,10 +186,12 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
-	trainerActivityDetails: function(){
+	trainerActivityDetails: function(id){
+		console.log('trainer activity detail view');
 		setupBody();
 
-		var activityItem = new Activity({id: 33});
+		var activityItem = new Activity({id: id });
+		console.log(this);
 		activityItem.fetch().done(function(){
 			var trainerActivityDetails = new ActivityDetailView({model: activityItem});
 			$('body').append(trainerActivityDetails.render().el);
@@ -224,7 +226,7 @@ var Router = Backbone.Router.extend({
 	studentDash: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('Your Dashboard');
+		$('.header-title').html('Dashboard');
 		$('#dashTab').addClass("active");
 		var studentDash = new StudentDashContainerView();
 		$('.main').append(studentDash.render().el);
@@ -233,7 +235,7 @@ var Router = Backbone.Router.extend({
 	studentActivitiesList: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('Your Classes');
+		$('.header-title').html('My Classes');
 		$('#classesTab').addClass("active");
 		var studentActivityList = new StudentActivitiesListView();
 		$('body').append(studentActivityList.render().el);
@@ -242,7 +244,7 @@ var Router = Backbone.Router.extend({
 		var activities = new Activities();
 		activities.fetch().done(function() {
 			activities.each(function(instance) {
-				var activityItem = new ActivityItemView({ model: instance});
+				var activityItem = new StudentActivityItemView({ model: instance});
 				$('.activities-list').append(activityItem.render().el);
 			});
 		});
@@ -251,7 +253,7 @@ var Router = Backbone.Router.extend({
 	studentCalendar: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('Your Calendar');
+		$('.header-title').html('Calendar');
 		$('#calendarTab').addClass("active");
 		var studentCalendar = new StudentCalendarView();
 		$('.main').append(studentCalendar.render().el);
@@ -277,7 +279,7 @@ var Router = Backbone.Router.extend({
 	studentContactsList: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('Your Instructors');
+		$('.header-title').html('My Trainers');
 		$('#contactsTab').addClass("active");
 		//container for contacts list
 		var trainersListContainer = new TrainersListContainerView();

@@ -236,8 +236,8 @@
                     <th class="col-xs-2">Date</th>
                     <th class="col-xs-3">Class</th>
                     <th class="col-xs-3">Location</th>
-                    <th class="col-xs-2">Status</th>
-                    <th class="col-xs-2">Places Left</th>
+                    <th class="col-xs-2">Confirmed</th>
+                    <th class="col-xs-2">Participants</th>
                   </tr>
                 </thead>
                 <tbody class="activities-list">
@@ -257,7 +257,7 @@
               <tr>
                 <th class="col-xs-2">Date</th>
                 <th class="col-xs-3">Class</th>
-                <th class="col-xs-3">Instructor</th>
+                <th class="col-xs-3">Instructor(id)</th>
                 <th class="col-xs-4">Location</th>
               </tr>
             </thead>
@@ -270,19 +270,18 @@
 </script>
 
 <script id="activity-item-template" type="text/underscoreTemplate">
-  <th>{{ date }}</th>
-  <th>{{ activity_type_name }}</th>
-  <th><a href="trainer_show">{{ class name }}</a></th>
+  <th>{{ created_at }}</th>
+  <th><a href='#trainer/activities/{{ id }}'>{{ activity_type_name }}</a></th>
+  <th>{{ venue_details.name }}</th>
+  <th>{{ confirmed }}</th>
   <th>{{ participant_count }}</th>
-  <th>{{ status }}</th>
-  <th>{{ places left }}</th>
 </script>
 
 <script id="student-activity-item-template" type="text/underscoreTemplate">
-  <th>{{ date }}</th>
-  <th><a href="#actvity/:id">{{ class name }}</a></th>
-  <th><a href="#user/:id">{{ instructor name }}</a></th>
-  <th>{{ location }}</th>
+  <th>{{ created_at }}</th>
+  <th><a href="#student/actvities/{{ id }}">{{ activity_type_name }}</a></th>
+  <th><a href="#student/users/{{ user_id }}">{{ user_id }}</a></th>
+  <th>{{ venue_details.name }}, {{ venue_details.address }}</th>
 </script>
 
 <script id="trainer-calendar-template" type="text/mustacheTemplate">
@@ -325,7 +324,7 @@
 </script>
 
 <script id="student-contacts-list-template" type='text/underscoreTemplate'>
-  
+
       <div class="row">
         <table class="table table-striped">
           <thead>
