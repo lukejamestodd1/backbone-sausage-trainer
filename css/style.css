@@ -31,25 +31,24 @@ h1, h2, h3, h4, h5, h6 {
   color: #F9690E;
 } 
 
-p {
-  color: #F89406;
-}
-
-.navbar-default {
+/*.navbar-default {
   background-color: #81CFE0;
 }
 
 .navbar-header {
   background-color: #81CFE0;
+}*/
+
+.navbar-default .navbar-toggle {
+  border-color: #F9690E;
+}
+
+.icon-bar {
+  background-color: #F9690E !important;
 }
 
 .navbar a {
-  color: #F9690E !important;
-}
-
-.nav-color {
-  background-color: #81CFE0;
-  color: #F9690E;
+  color: #81CFE0 !important;
 }
 
 .fill1 {
@@ -66,14 +65,14 @@ p {
 
 #footer {
   height: 60px;
-  background-color: #81CFE0;
+/*  background-color: #81CFE0;*/
   margin-top:2em;
   padding: 9px 0px 9px 0px;
   vertical-align: center;
 }
 
 #footer p, a {
-  color: #F9690E;
+  color: #81CFE0;
 }
 
 .text-muted {
