@@ -1,6 +1,48 @@
-
-
 //========== WHOLE PAGE VIEWS ===========//
+
+var NavBarView = Backbone.View.extend({
+  tagName: 'nav',
+  className: 'navbar navbar-default navbar-fixed-top',
+  template: $('#navBarTemplate').html(),
+  render: function(){
+		var html = Mustache.render(this.template, this.model);
+		this.$el.html(html);
+		return this;
+	}
+});
+
+var CarouselView = Backbone.View.extend({
+  tagName: 'header',
+  className: 'carousel slide',
+  idName: 'myCarousel',
+  template: $('#carouselTemplate').html(),
+  render: function() {
+    var html = Mustache.render(this.template, this.model);
+		this.$el.html(html);
+		return this;
+  }
+});
+
+var SplashMainView = Backbone.View.extend({
+  tagName: 'main',
+  template: $('#splashMainTemplate').html(),
+  render: function() {
+    var html = Mustache.render(this.template, this.model);
+		this.$el.html(html);
+		return this;
+  }
+});
+
+var LoginFormView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#loginFormTemplate').html(),
+  render: function() {
+    var html = Mustache.render(this.template, this.model);
+		this.$el.html(html);
+		return this;
+  }
+});
 
 var IndexView = Backbone.View.extend({
 	tagName: 'div',
@@ -12,6 +54,8 @@ var IndexView = Backbone.View.extend({
 		return this;
 	}
 });
+
+
 
 var LoginView = Backbone.View.extend({
 	tagName: 'div',
@@ -164,7 +208,7 @@ var ParticipantItemView = Backbone.View.extend({
 
 /*
 
-//========== temporary arrays to store new backbone objects 
+//========== temporary arrays to store new backbone objects
 
 var usersArray = [];
 var activitiesArray = [];
@@ -179,7 +223,7 @@ var activityTypesArray = [];
 var makeObjects = function(objectModel, apiCollection, objectsArray){
 	for (var i = 0; i < apiCollection.length; i++){
 		var object = new objectModel();
-		
+
 		//for each key in the api element, make an attribute for the Backbone object
 
 		//set the value for each attribute to the value in api data. eg:
@@ -215,4 +259,3 @@ var activityTypes = new ActivitiesTypes(activityTypesArray);
 
 
 */
-
