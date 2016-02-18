@@ -37,7 +37,7 @@ var Router = Backbone.Router.extend({
 		"trainer/calendar": "trainerCalendar",
 		"trainer/contacts": "trainerContactsList",
 
-		// "trainer/activities/:id": "trainerActivityDetails",
+		"trainer/activities/:id": "trainerActivityDetails",
 		// "trainer/activities/new": "trainerActivityCreate",
 		// "trainer/activities/edit": "trainerActivityEdit",
 		// "trainer/contacts/message": "trainerSendMessage",
@@ -47,7 +47,7 @@ var Router = Backbone.Router.extend({
 		"student/calendar": "studentCalendar",
 		"student/contacts": "studentContactsList",
 
-		// "student/activities/:id": "studentActivityDetails",
+		"student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
 		//	"student/contacts/:id": "studentTrainerDetail",
 		
@@ -99,7 +99,7 @@ var Router = Backbone.Router.extend({
 		var trainersActivityList = new TrainerActivitiesListView();
 		$('body').append(trainersActivityList.render().el);
 
-		//activities list with
+		//activities list
 		var activities = new Activities();
 		activities.fetch().done(function() {
 			activities.each(function(instance) {
@@ -149,7 +149,14 @@ var Router = Backbone.Router.extend({
 	},
 
 	trainerActivityDetails: function(){
-
+		setupBody();
+		var activityItem = new Activity({id: 33});
+		activityItem.fetch().done(function(){
+			var trainerActivityDetails = new ActivityDetailView({model: activityItem});
+			$('body').append(trainerActivityDetails.render().el);
+		});
+		
+		
 	},
 
 	trainerActivityCreate: function(){
@@ -227,7 +234,12 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentActivityDetails: function(){
-
+		setupBody();
+		var activityItem = new Activity({id: 33});
+		activityItem.fetch().done(function(){
+			var studentActivityDetails = new StudentActivityDetailView({model: activityItem});
+			$('body').append(studentActivityDetails.render().el);
+		});
 	},
 
 	studentActivityBook: function(){
@@ -239,3 +251,18 @@ var Router = Backbone.Router.extend({
 	}
 
 });
+
+		//Parts of pages
+		// //append container to body
+		// var mainContainer = new MainContainer();
+		// $('body').append(mainContainer.render().el);
+
+		// //append header to container main
+		// var header = new TrainerHeader();
+		// $('.main').append(header.render().el);
+
+		// //append colour bar to container main
+		// var colourBar = new ColourBar();
+		// $('.main').append(colourBar.render().el);
+
+		// //append other divs of info below colour bar.

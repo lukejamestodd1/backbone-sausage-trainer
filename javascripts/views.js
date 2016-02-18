@@ -184,4 +184,63 @@ var ContactItemView = Backbone.View.extend({
   }
 });
 
+//for trainer single activity detail view
+var ActivityDetailView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#trainer-activity-detail-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template, this.model.toJSON());
+    this.$el.html(html);
+    return this;
+  }
+});
 
+//for student single activity detail view
+var StudentActivityDetailView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#student-activity-detail-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template, this.model.toJSON());
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//PARTS OF PAGES
+//for main container - holds dash(header text, navigation),
+//colour bar, and containers/lists below
+var MainContainer = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container main',
+  template: $('#container-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for trainer header title and controls
+var TrainerHeader = Backbone.View.extend({
+  tagName: 'div',
+  className: 'dash-title',
+  template: $('#trainer-header-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//colour bar divider object
+var ColourBar = Backbone.View.extend({
+  tagName: 'div',
+  template: $('#colour-bar-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
