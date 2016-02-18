@@ -79,41 +79,6 @@ var StudentDashContainerView = Backbone.View.extend({
   }
 });
 
-//for trainer contacts list container
-var ContactListContainerView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'container',
-  template: $('#trainer-contacts-list-template').html(),
-  render: function(){
-    var html = Mustache.render(this.template);
-    this.$el.html(html);
-    return this;
-  }
-});
-
-//for list of trainers a student is following container
-var TrainersListContainerView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'container',
-  template: $('#student-contacts-list-template').html(),
-  render: function(){
-    var html = Mustache.render(this.template);
-    this.$el.html(html);
-    return this;
-  }
-});
-
-//for user list-items
-var ContactItemView = Backbone.View.extend({
-  tagName: 'tr',
-  template: $('#user-item-template').html(),
-  render: function() {
-    var html = Mustache.render(this.template, this.model.toJSON());
-    this.$el.html(html);
-    return this;
-  }
-});
-
 //for trainer activities list container
 var TrainerActivitiesListView = Backbone.View.extend({
   tagName: 'div',
@@ -159,3 +124,64 @@ var StudentActivityItemView = Backbone.View.extend({
     return this;
   }
 });
+
+//for trainer calendar
+var TrainerCalendarView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#trainer-calendar-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for student calendar
+var StudentCalendarView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#student-calendar-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for trainer contacts list container
+var ContactListContainerView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#trainer-contacts-list-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for list of trainers a student is following container
+var TrainersListContainerView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#student-contacts-list-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for user list-items
+var ContactItemView = Backbone.View.extend({
+  tagName: 'tr',
+  template: $('#user-item-template').html(),
+  render: function() {
+    var html = Mustache.render(this.template, this.model.toJSON());
+    this.$el.html(html);
+    return this;
+  }
+});
+
+
