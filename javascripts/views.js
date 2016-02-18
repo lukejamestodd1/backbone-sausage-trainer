@@ -55,6 +55,30 @@ var LoginFormView = Backbone.View.extend({
   }
 });
 
+//for trainer welcome/dashboard area
+var TrainerDashContainerView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#trainer-dashboard-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for student welcome/dashboard area
+var StudentDashContainerView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#student-dashboard-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
 //for trainer contacts list container
 var ContactListContainerView = Backbone.View.extend({
   tagName: 'div',
@@ -67,7 +91,7 @@ var ContactListContainerView = Backbone.View.extend({
   }
 });
 
-//for student contacts list container
+//for list of trainers a student is following container
 var TrainersListContainerView = Backbone.View.extend({
   tagName: 'div',
   className: 'container',
@@ -79,7 +103,7 @@ var TrainersListContainerView = Backbone.View.extend({
   }
 });
 
-//for a list of users
+//for user list-items
 var ContactItemView = Backbone.View.extend({
   tagName: 'tr',
   template: $('#user-item-template').html(),
@@ -102,7 +126,7 @@ var TrainerActivitiesListView = Backbone.View.extend({
   }
 });
 
-//for list of activities
+//for activity list item
 var ActivityItemView = Backbone.View.extend({
   tagName: 'tr',
   template: $('#activity-item-template').html(),
@@ -125,7 +149,7 @@ var StudentActivitiesListView = Backbone.View.extend({
   }
 });
 
-//for list of activities
+//for student activity list items
 var StudentActivityItemView = Backbone.View.extend({
   tagName: 'tr',
   template: $('#student-activity-item-template').html(),

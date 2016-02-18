@@ -40,16 +40,10 @@
           <a href="">Home</a>
         </li>
         <li>
-          <a href="#trainer/contacts">trainerContacts</a>
+          <a href="#trainer/dash">TrainerDashboard</a>
         </li>
         <li>
-          <a href="#student/contacts">studentContacts</a>
-        </li>
-        <li>
-          <a href="#trainer/activities">trainerActivities</a>
-        </li>
-        <li>
-          <a href="#student/activities">studentActivities</a>
+          <a href="#student/dash">StudentDashboard</a>
         </li>
         <li>
           <a href="#login"><span class="glyphicon glyphicon-user"></span> Login</a>
@@ -316,6 +310,116 @@
   <th><a href="#actvity/:id">{{ class name }}</a></th>
   <th><a href="#user/:id">{{ instructor name }}</a></th>
   <th>{{ location }}</th>
+</script>
+
+<script id="trainer-dashboard-template" type="text/underscoreTemplate">
+  <div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Profile- Trainers</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="classes.html">Classes</a></li>
+        <li role="presentation"><a href="#">Calendar</a></li>
+        <li role="presentation"><a href="view_all_students.html">Contacts</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
+          <h1>Space for new homepage functionality</h1>
+        </div>
+
+        <!-- Calendar Here -->
+        <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
+          <p>Integrate calendar here </p>
+        </div>        
+
+      </div>
+
+      <h3>Next Classes</h3>
+      <!-- Confirmed classes -->  
+      <div class="table-responsive col-xs-12 col-md-12">
+
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-xs-3 col-md-3">Date</th>
+                <th class="col-xs-4 col-md-4">Class</th>
+                <th class="col-xs-5 col-md-5">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{hhh</th>
+                <th><a href="trainer_show">...</a></th>
+                <th>..</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    </div>
+</script>
+
+<script id="student-dashboard-template" type="text/underscoreTemplate">
+  <div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Profile - Students</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
+        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
+        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
+          <h1>Space for new homepage functionality</h1>
+        </div>
+
+        <!-- Calendar Here -->
+        <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
+          <p>Integrate calendar here </p>
+        </div>        
+
+      </div>
+
+      <h3>Next Classes</h3>
+      <!-- Confirmed classes -->  
+      <div class="table-responsive col-xs-12 col-md-12">
+
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-xs-3 col-md-3">Date</th>
+                <th class="col-xs-4 col-md-4">Class</th>
+                <th class="col-xs-5 col-md-5">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>hello</th>
+                <th><a href="trainer_show">dhfhf</a></th>
+                <th>hfnhf</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    </div>
 </script>
 <script src="javascripts/models.js"></script>
 <script src="javascripts/views.js"></script>

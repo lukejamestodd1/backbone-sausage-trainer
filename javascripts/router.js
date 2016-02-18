@@ -32,7 +32,7 @@ var Router = Backbone.Router.extend({
 		"login": "login",
 		// "signup": "signUp",
     //
-		// "trainer/dash": "trainerDash",
+		"trainer/dash": "trainerDash",
 		"trainer/activities": "trainerActivitiesList",
 		// "trainer/activities/:id": "trainerActivityDetails",
 		// "trainer/activities/new": "trainerActivityCreate",
@@ -41,7 +41,7 @@ var Router = Backbone.Router.extend({
 		// "trainer/contacts/message": "trainerSendMessage",
 		// "trainer/calendar": "trainerCalendar",
     //
-		// "student/dash": "studentDash",
+		"student/dash": "studentDash",
 		"student/activities": "studentActivitiesList",
 		// "student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
@@ -86,7 +86,9 @@ var Router = Backbone.Router.extend({
 	},
 
 	trainerDash: function(){
-
+		setupBody();
+		var trainerDash = new TrainerDashContainerView();
+		$('body').append(trainerDash.render().el);
 	},
 
 	trainerActivitiesList: function(){
@@ -142,7 +144,9 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentDash: function(){
-
+		setupBody();
+		var studentDash = new StudentDashContainerView();
+		$('body').append(studentDash.render().el);
 	},
 
 	studentActivitiesList: function(){
