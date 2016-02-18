@@ -265,27 +265,11 @@
 </script>
 
 <script id="trainer-activities-list-template" type="text/mustacheTemplate"> 
-<div class="dash-title">
-      <img src="http://placehold.it/140x100" alt="" class="avatar">
-      <h1 class="header-title">Your Classes - Trainers</h1>
-      <ul class="nav nav-tabs navbar-right tabs-title">
-        <li role="presentation" class="active"><a href="#trainer/activities">Classes</a></li>
-        <li role="presentation"><a href="#trainer/calendar">Calendar</a></li>
-        <li role="presentation"><a href="#trainer/contacts">Contacts</a></li>
-      </ul>
-    </div>
-    
-    <hr class="colorgraph">
-
-    <div class="container-fluid">
-
       <div class="row">
-
         <div class="title-colourgraph table-responsive col-xs-12">
           <h3>All Classes</h3>
           <!-- Confirmed classes -->  
           <div class="table-responsive col-xs-12 col-md-12">
-
             <div class="row">
               <table class="table table-striped">
                 <thead>
@@ -304,10 +288,7 @@
             </div>
           </div>
         </div>      
-
       </div>
-    
-    </div>
 </script>
 
 <script id="student-activities-list-template" type="text/mustacheTemplate">
@@ -411,22 +392,8 @@
   </script>
 
 <script id="trainer-contacts-list-template" type="text/mustacheTemplate">
-  
-    <div class="dash-title">
-      <img src="http://placehold.it/140x100" alt="" class="avatar">
-      <h1 class="header-title">Your Contacts - Trainers</h1>
-      <ul class="nav nav-tabs navbar-right tabs-title">
-        <li role="presentation" class="active"><a href="#trainer/activities">Classes</a></li>
-        <li role="presentation"><a href="#trainer/calendar">Calendar</a></li>
-        <li role="presentation"><a href="trainer/contacts">Contacts</a></li>
-      </ul>
-    </div>
-    
-    <hr class="colorgraph">
-
-    <div class="container-fluid title-colourgraph">
       <h3>Your Contacts</h3>
-      <button href="message_students.html">Message</button>
+      <button href="#trainer/contacts/message">Message</button>
       <div class="table-responsive col-xs-12">
 
         <div class="row">
@@ -439,13 +406,11 @@
             </thead>
             <tbody class="users-list">
               <tr>
-              
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
 </script>
 
 <script id="student-contacts-list-template" type='text/underscoreTemplate'>
@@ -543,9 +508,10 @@
       <img src="http://placehold.it/140x100" alt="" class="avatar">
       <h1 class="header-title"></h1>
       <ul class="nav nav-tabs navbar-right tabs-title">
-        <li role="presentation" class="active"><a href="#trainer/activities">Classes</a></li>
-        <li role="presentation"><a href="#trainer/calendar">Calendar</a></li>
-        <li role="presentation"><a href="#trainer/contacts">Contacts</a></li>
+        <li role="presentation" id="dashTab"><a href="#trainer/dash">Dashboard</a></li>
+        <li role="presentation" id="classesTab"><a href="#trainer/activities">Classes</a></li>
+        <li role="presentation" id="calendarTab"><a href="#trainer/calendar">Calendar</a></li>
+        <li role="presentation" id="contactsTab"><a href="#trainer/contacts">Contacts</a></li>
       </ul>
 </script>
 

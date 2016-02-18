@@ -82,7 +82,7 @@ var StudentDashContainerView = Backbone.View.extend({
 //for trainer activities list container
 var TrainerActivitiesListView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid',
   template: $('#trainer-activities-list-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -152,7 +152,7 @@ var StudentCalendarView = Backbone.View.extend({
 //for trainer contacts list container
 var ContactListContainerView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid title-colourgraph',
   template: $('#trainer-contacts-list-template').html(),
   render: function(){
     var html = Mustache.render(this.template);

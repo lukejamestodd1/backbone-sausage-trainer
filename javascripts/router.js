@@ -50,6 +50,8 @@ var Router = Backbone.Router.extend({
 		"student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
 		//	"student/contacts/:id": "studentTrainerDetail",
+
+		"testing": "testingArea"
 		
 	},
 
@@ -96,8 +98,17 @@ var Router = Backbone.Router.extend({
 
 	trainerActivitiesList: function(){
 		setupBody();
+		var mainContainer = new MainContainer();
+		$('body').append(mainContainer.render().el);
+		var header = new TrainerHeader();
+		$('.main').append(header.render().el);
+		$('.header-title').html('Your Classes');
+		$('#classesTab').addClass("active");
+		var colourBar = new ColourBar();
+		$('.main').append(colourBar.render().el);
+
 		var trainersActivityList = new TrainerActivitiesListView();
-		$('body').append(trainersActivityList.render().el);
+		$('.main').append(trainersActivityList.render().el);
 
 		//activities list
 		var activities = new Activities();
@@ -134,10 +145,16 @@ var Router = Backbone.Router.extend({
 
 	trainerContactsList: function(){
 		setupBody();
-		//container for contacts list
+		var mainContainer = new MainContainer();
+		$('body').append(mainContainer.render().el);
+		var header = new TrainerHeader();
+		$('.main').append(header.render().el);
+		$('.header-title').html('Your Contacts');
+		$('#contactsTab').addClass("active");
+		var colourBar = new ColourBar();
+		$('.main').append(colourBar.render().el);
 		var contactListContainer = new ContactListContainerView();
-		$('body').append(contactListContainer.render().el);
-
+		$('.main').append(contactListContainer.render().el);
 		//contacts list with user data
 		var contacts = new Contacts();
 		contacts.fetch().done(function() {
@@ -162,11 +179,6 @@ var Router = Backbone.Router.extend({
 
 	trainerActivityCreate: function(){
 		setupBody();
-		var mainContainer = new MainContainer();
-		$('body').append(mainContainer.render().el);
-		var header = new TrainerHeader();
-		$('.main').append(header.render().el);
-		$('.header-title').html('New Activity');
 	},
 
 	trainerActivityEdit: function(){
@@ -255,6 +267,11 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentTrainerDetail: function(){
+
+	},
+
+	testingArea: function(){
+
 
 	}
 
