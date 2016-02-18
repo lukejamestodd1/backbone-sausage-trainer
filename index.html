@@ -46,6 +46,12 @@
           <a href="#student/contacts">studentContacts</a>
         </li>
         <li>
+          <a href="#trainer/activities">trainerActivities</a>
+        </li>
+        <li>
+          <a href="#student/activities">studentActivities</a>
+        </li>
+        <li>
           <a href="#login"><span class="glyphicon glyphicon-user"></span> Login</a>
         </li>
         <li>
@@ -213,6 +219,104 @@
     <th>{{ email }}</a></th>
   </script>
 
+<script id="trainer-activities-list-template" type="text/mustacheTemplate"> 
+<div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Classes - Trainers</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="classes.html">Classes</a></li>
+        <li role="presentation"><a href="#">Calendar</a></li>
+        <li role="presentation"><a href="view_all_students.html">Contacts</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="title-colourgraph table-responsive col-xs-12">
+          <h3>All Classes</h3>
+          <!-- Confirmed classes -->  
+          <div class="table-responsive col-xs-12 col-md-12">
+
+            <div class="row">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-xs-2">Date</th>
+                    <th class="col-xs-3">Class</th>
+                    <th class="col-xs-3">Location</th>
+                    <th class="col-xs-2">Status</th>
+                    <th class="col-xs-2">Places Left</th>
+                  </tr>
+                </thead>
+                <tbody class="activities-list">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>      
+
+      </div>
+    
+    </div>
+</script>
+
+<script id="student-activities-list-template" type="text/mustacheTemplate">
+   <div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Classes - Students</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
+        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
+        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid">
+
+      <div class="table-responsive col-xs-12 col-md-12">
+
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-xs-2">Date</th>
+                <th class="col-xs-3">Class</th>
+                <th class="col-xs-3">Instructor</th>
+                <th class="col-xs-4">Location</th>
+              </tr>
+            </thead>
+            <tbody class="activities-list">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    </div>
+</script>
+
+<script id="activity-item-template" type="text/underscoreTemplate">
+  <th>{{ date }}</th>
+  <th>{{ activity_type_name }}</th>
+  <th><a href="trainer_show">{{ class name }}</a></th>
+  <th>{{ participant_count }}</th>
+  <th>{{ status }}</th>
+  <th>{{ places left }}</th>
+</script>
+
+<script id="student-activity-item-template" type="text/underscoreTemplate">
+  <th>{{ date }}</th>
+  <th><a href="#actvity/:id">{{ class name }}</a></th>
+  <th><a href="#user/:id">{{ instructor name }}</a></th>
+  <th>{{ location }}</th>
+</script>
 <script src="javascripts/models.js"></script>
 <script src="javascripts/views.js"></script>
 <script src="javascripts/router.js"></script>

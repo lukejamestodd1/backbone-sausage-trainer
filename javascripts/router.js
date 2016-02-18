@@ -33,7 +33,7 @@ var Router = Backbone.Router.extend({
 		// "signup": "signUp",
     //
 		// "trainer/dash": "trainerDash",
-		// "trainer/activities": "trainerActivitiesList",
+		"trainer/activities": "trainerActivitiesList",
 		// "trainer/activities/:id": "trainerActivityDetails",
 		// "trainer/activities/new": "trainerActivityCreate",
 		// "trainer/activities/edit": "trainerActivityEdit",
@@ -42,7 +42,7 @@ var Router = Backbone.Router.extend({
 		// "trainer/calendar": "trainerCalendar",
     //
 		// "student/dash": "studentDash",
-		// "student/activities": "studentActivitiesList",
+		"student/activities": "studentActivitiesList",
 		// "student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
 		"student/contacts": "studentContactsList",
@@ -90,7 +90,18 @@ var Router = Backbone.Router.extend({
 	},
 
 	trainerActivitiesList: function(){
+		setupBody();
+		var trainersActivityList = new TrainerActivitiesListView();
+		$('body').append(trainersActivityList.render().el);
 
+		//activities list with
+		var activities = new Activities();
+		activities.fetch().done(function() {
+			activities.each(function(instance) {
+				var activityItem = new ActivityItemView({ model: instance});
+				$('.activities-list').append(activityItem.render().el);
+			});
+		});
 
 	},
 
@@ -135,7 +146,18 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentActivitiesList: function(){
+		setupBody();
+		var studentActivityList = new StudentActivitiesListView();
+		$('body').append(studentActivityList.render().el);
 
+		//activities list with
+		var activities = new Activities();
+		activities.fetch().done(function() {
+			activities.each(function(instance) {
+				var activityItem = new ActivityItemView({ model: instance});
+				$('.activities-list').append(activityItem.render().el);
+			});
+		});
 	},
 
 	studentActivityDetails: function(){
@@ -149,14 +171,14 @@ var Router = Backbone.Router.extend({
 	studentContactsList: function(){
 		setupBody();
 		//container for contacts list
-		var trainersListContainer = new TrainersListContainer();
+		var trainersListContainer = new TrainersListContainerView();
 		$('body').append(trainersListContainer.render().el);
 
 		//contacts list with user data
 		var contacts = new Contacts();
 		contacts.fetch().done(function() {
 			contacts.each(function(person) {
-				var contactsList = new UserItemView({ model: person});
+				var contactsList = new ContactItemView({ model: person});
 				$('.users-list').append(contactsList.render().el);
 			});
 		});
