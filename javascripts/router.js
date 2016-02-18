@@ -3,10 +3,18 @@
 var sausageTrainerApp = {};
 
 // helper function
-var clearBody = function() {
+var setupBody = function() {
+  if ($('.navbar').length === 0) {
+    console.log('Creating nav bar.');
+    // no current nav bar found so append to body
+    var navBar = new NavBarView();
+    $('body').append(navBar.render().el);
+    $('.navbar').attr('role', 'navigation');
+  }
+
   // collect all elements and remove all except nav bar, footer and scripts
   $('body').children().each( function(child) {
-    if ($(this).is('script') || $(this).is('nav') || $(this).is('#footer')) {
+    if ($(this).is('script') || $(this).is('nav')) {
     } else {
       $(this).remove();
     }
@@ -22,7 +30,6 @@ var Router = Backbone.Router.extend({
 	routes: {
 		"": "showIndex",
 		"login": "login",
-<<<<<<< HEAD
 		// "user/new": "signUp",
     //
 		// "trainer/dash": "trainerDash",
@@ -41,76 +48,49 @@ var Router = Backbone.Router.extend({
 		// "student/contacts": "studentContactsList",
 		// "student/contacts/:id": "studentTrainerDetail",
 		// "student/calendar": "studentCalendar"
-=======
-		"user/new": "signUp",
-
-		"trainer/dash": "trainerDash", 
-		"trainer/activities": "trainerActivitiesList", 
-		"trainer/activities/:id": "trainerActivityDetails",
-		"trainer/activities/new": "trainerActivityCreate",
-		"trainer/activities/edit": "trainerActivityEdit", 
-		"trainer/contacts": "trainerContactsList",
-		"trainer/contacts/message": "trainerSendMessage",
-		"trainer/calendar": "trainerCalendar",
-
-		"student/dash": "studentDash",
-		"student/activities": "studentActivitiesList", 
-		"student/activities/:id": "studentActivityDetails",
-		"student/activities/:id/book": "studentActivityBook", 
-		"student/contacts": "studentContactsList",
-		"student/contacts/:id": "studentTrainerDetail",
-		"student/calendar": "studentCalendar"	
->>>>>>> 62132542baec4ae40e7ff7825677f24d6d2f9caa
+		// "user/new": "signUp",
+    //
+		// "trainer/dash": "trainerDash",
+		// "trainer/activities": "trainerActivitiesList",
+		// "trainer/activities/:id": "trainerActivityDetails",
+		// "trainer/activities/new": "trainerActivityCreate",
+		// "trainer/activities/edit": "trainerActivityEdit",
+		// "trainer/contacts": "trainerContactsList",
+		// "trainer/contacts/message": "trainerSendMessage",
+		// "trainer/calendar": "trainerCalendar",
+    //
+		// "student/dash": "studentDash",
+		// "student/activities": "studentActivitiesList",
+		// "student/activities/:id": "studentActivityDetails",
+		// "student/activities/:id/book": "studentActivityBook",
+		// "student/contacts": "studentContactsList",
+		// "student/contacts/:id": "studentTrainerDetail",
+		// "student/calendar": "studentCalendar"
 	},
 
 	showIndex: function(){
+    console.log('Index route loading...');
     // index page made up of:
     // nav bar
     // welcome/splash screen view
     // footer
-    // clearBody();
-
-    var navBar = new NavBarView();
-    $('body').append(navBar.render().el);
-    $('.navbar').attr('role', 'navigation');
+    setupBody();
 
     var splashCarousel = new CarouselView();
     $('body').append(splashCarousel.render().el);
+    $('.carousel').carousel({ interval: 5000 });
 
     var splashMain = new SplashMainView();
     $('body').append(splashMain.render().el);
 
-<<<<<<< HEAD
-		// loading external mustache templates - not working atm
-		// 	var loadNavBar = function() {
-		// 	  console.log('Loading navbar template');
-		// 	  $.get('http://localhost:8000/template/navBarTemplate.mst', function(template) {
-		// 	    var rendered = Mustache.render(template, {loginStatus: 'logout'});
-		// 	    $('body').append(rendered);
-		// 	  })
-		// 	};
-    //
-		// 	var init = function() {
-		// 	  loadNavBar();
-		// 	};
-    //
-		// 	$( document ).ready( init );
-    //
-		// //shows all users
-=======
-		
-
-
-
-
-
+    var footer = new FooterView();
+    $('body').append(footer.render().el);
 
 		// //show student dashboard
 		// var studentDash = new StudentDashboard();
 		// $('body').append(studentDash.render().el);
 
 		//shows all users
->>>>>>> 62132542baec4ae40e7ff7825677f24d6d2f9caa
 		// var users = new Users();
 		// users.fetch().done(function() {
 		// 	users.each(function(person) {
@@ -119,11 +99,8 @@ var Router = Backbone.Router.extend({
 		// 	});
 		// });
 
-<<<<<<< HEAD
 		//shows all activities
-=======
 		// //shows all activities
->>>>>>> 62132542baec4ae40e7ff7825677f24d6d2f9caa
 		// var activities = new Activities();
 		// activities.fetch().done(function(){
 		// 	activities.each(function(instance){
@@ -131,7 +108,6 @@ var Router = Backbone.Router.extend({
 		// 		$('.activities-list').append(view.render().el);
 		// 	});
 		// });
-<<<<<<< HEAD
     //
 		// //shows one activity
 		// // console.log('index page function');
@@ -147,12 +123,10 @@ var Router = Backbone.Router.extend({
 		// //change from hard coded when more data exists in DB
 		// console.log('SHOW PAGE');
 		// var activity = new Activity({id: 22});
-=======
 
 		//shows one activity
 		// console.log('index page function');
 		// var activity = new Activity({id: 11});
->>>>>>> 62132542baec4ae40e7ff7825677f24d6d2f9caa
 		// activity.fetch().done(function(){
 		// 	//make a view showing the activity
 		// 	var activityView = new ActivityDetailView({model: activity});
@@ -187,8 +161,6 @@ var Router = Backbone.Router.extend({
 		// 		});
 		// 	});
 		// });
-<<<<<<< HEAD
-=======
 
 		//show one activity plus trainer info,
 		//venue info, participants list
@@ -229,18 +201,18 @@ var Router = Backbone.Router.extend({
 		// 		});
 		// 	});
 		// });
->>>>>>> 62132542baec4ae40e7ff7825677f24d6d2f9caa
 	},
 
 	login: function(){
 		console.log("Login route loading...");
-    // clearBody();
 
-    clearBody();
+    setupBody();
 
     var loginForm = new LoginFormView();
     $('body').append(loginForm.render().el);
 
+    var footer = new FooterView();
+    $('body').append(footer.render().el);
 	},
 
 	signUp: function(){
@@ -272,7 +244,7 @@ var Router = Backbone.Router.extend({
 		//container for contacts list
 		var contactsListContainer = new ContactsListContainer();
 		$('body').append(contactsListContainer.render().el);
-		
+
 		//contacts list with user data
 		var contacts = new Contacts();
 		contacts.fetch().done(function() {
@@ -311,7 +283,7 @@ var Router = Backbone.Router.extend({
 		//container for contacts list
 		var trainersListContainer = new TrainersListContainer();
 		$('body').append(trainersListContainer.render().el);
-		
+
 		//contacts list with user data
 		var contacts = new Contacts();
 		contacts.fetch().done(function() {
