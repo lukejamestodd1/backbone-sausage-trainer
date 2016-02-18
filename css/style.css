@@ -146,8 +146,21 @@ header.carousel .fill {
   height: 200px;
 }
 
+/* all calendars */
+.fc-day-grid-container {
+  overflow: visible;
+  height: 100% !important;
+}
+
+.fc th, .fc td {
+  border: none;
+}
 
 
+/* use  */
+/*div.fc-week > div > table > tbody> tr > td:nth-child(1){
+  background-color: red;
+}*/
 
 
 
