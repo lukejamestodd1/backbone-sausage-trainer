@@ -196,6 +196,18 @@ var ActivityDetailView = Backbone.View.extend({
   }
 });
 
+//for student single activity detail view
+var StudentActivityDetailView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#student-activity-detail-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template, this.model.toJSON());
+    this.$el.html(html);
+    return this;
+  }
+});
+
 //PARTS OF PAGES
 //for main container - holds dash(header text, navigation),
 //colour bar, and containers/lists below

@@ -488,6 +488,33 @@
     <button>Delete this class</button>
 </script>
 
+<script id="student-activity-detail-template" type="text/mustacheTemplate">
+  <div class="dash-title">
+      <h1 class="header-title">{{ activity_type_name }}</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+       <li role="presentation" class="active"><a href="#student/activities">Classes</a></li>
+        <li role="presentation"><a href="#student/calendar">Calendar</a></li>
+        <li role="presentation"><a href="#student/contacts">Followed Instructors</a></li>
+      </ul>
+    </div>
+      <hr class="colorgraph">
+      <h3>{{ Date }}</h3>
+      <h3>Instructor: {{ instructor name }}</h3>
+      <h3>Location</h3>
+      <p>{{ venue_details.name }}, {{ venue_details.address }}</p>
+      <h3>Class Description</h3>
+      <p>{{ description }}</p>
+      <h3>Price: {{ cost }}</h3>
+      <h3>Class size: {{ max_size }}</h3>
+    <hr class="colorgraph">
+    <div class="row form-btn">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 form-btn">
+        <button href"book_class.html">Book This Class</button>
+        <button>&#9734; Follow {{ instructor name }}</button>
+      </div>
+    </div>
+</script>
+
 <script id="trainer-activity-create-template" type="text/mustacheTemplate"> 
 </script>
 

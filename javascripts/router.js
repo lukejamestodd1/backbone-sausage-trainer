@@ -47,7 +47,7 @@ var Router = Backbone.Router.extend({
 		"student/calendar": "studentCalendar",
 		"student/contacts": "studentContactsList",
 
-		// "student/activities/:id": "studentActivityDetails",
+		"student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
 		//	"student/contacts/:id": "studentTrainerDetail",
 		
@@ -234,7 +234,12 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentActivityDetails: function(){
-
+		setupBody();
+		var activityItem = new Activity({id: 33});
+		activityItem.fetch().done(function(){
+			var studentActivityDetails = new StudentActivityDetailView({model: activityItem});
+			$('body').append(studentActivityDetails.render().el);
+		});
 	},
 
 	studentActivityBook: function(){
