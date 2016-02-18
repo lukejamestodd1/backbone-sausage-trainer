@@ -21,6 +21,26 @@ var setupBody = function() {
   });
 };
 
+//sets up the menu/header for each page
+var setupMenu = function(){
+	var mainContainer = new MainContainer();
+	$('body').append(mainContainer.render().el);
+	var header = new MenuHeaderView();
+	$('.main').append(header.render().el);
+	var colourBar = new ColourBar();
+	$('.main').append(colourBar.render().el);
+};
+
+//sets up the menu/header for each page
+var studentMenu = function(){
+	var mainContainer = new MainContainer();
+	$('body').append(mainContainer.render().el);
+	var header = new StudentHeaderView();
+	$('.main').append(header.render().el);
+	var colourBar = new ColourBar();
+	$('.main').append(colourBar.render().el);
+};
+
 
 //========== ROUTER ========= //
 
@@ -92,21 +112,19 @@ var Router = Backbone.Router.extend({
 
 	trainerDash: function(){
 		setupBody();
+		setupMenu();
+		$('.header-title').html('Your Dashboard');
+		$('#dashTab').addClass("active");
 		var trainerDash = new TrainerDashContainerView();
-		$('body').append(trainerDash.render().el);
+		$('.main').append(trainerDash.render().el);
 	},
 
 	trainerActivitiesList: function(){
 		setupBody();
-		var mainContainer = new MainContainer();
-		$('body').append(mainContainer.render().el);
-		var header = new TrainerHeader();
-		$('.main').append(header.render().el);
+		setupMenu();
 		$('.header-title').html('Your Classes');
 		$('#classesTab').addClass("active");
-		var colourBar = new ColourBar();
-		$('.main').append(colourBar.render().el);
-
+		
 		var trainersActivityList = new TrainerActivitiesListView();
 		$('.main').append(trainersActivityList.render().el);
 
@@ -122,6 +140,10 @@ var Router = Backbone.Router.extend({
 
 	trainerCalendar: function(){
 		setupBody();
+		setupMenu();
+		$('.header-title').html('Your Calendar');
+		$('#dashTab').addClass("active");
+
 		var trainerCalendar = new TrainerCalendarView();
 		$('body').append(trainerCalendar.render().el);
 		$('#calendar').fullCalendar({
@@ -145,14 +167,10 @@ var Router = Backbone.Router.extend({
 
 	trainerContactsList: function(){
 		setupBody();
-		var mainContainer = new MainContainer();
-		$('body').append(mainContainer.render().el);
-		var header = new TrainerHeader();
-		$('.main').append(header.render().el);
+		setupMenu();
 		$('.header-title').html('Your Contacts');
 		$('#contactsTab').addClass("active");
-		var colourBar = new ColourBar();
-		$('.main').append(colourBar.render().el);
+
 		var contactListContainer = new ContactListContainerView();
 		$('.main').append(contactListContainer.render().el);
 		//contacts list with user data
@@ -167,6 +185,7 @@ var Router = Backbone.Router.extend({
 
 	trainerActivityDetails: function(){
 		setupBody();
+
 		var activityItem = new Activity({id: 33});
 		activityItem.fetch().done(function(){
 			var trainerActivityDetails = new ActivityDetailView({model: activityItem});
@@ -195,12 +214,18 @@ var Router = Backbone.Router.extend({
 	
 	studentDash: function(){
 		setupBody();
+		studentMenu();
+		$('.header-title').html('Your Dashboard');
+		$('#dashTab').addClass("active");
 		var studentDash = new StudentDashContainerView();
-		$('body').append(studentDash.render().el);
+		$('.main').append(studentDash.render().el);
 	},
 
 	studentActivitiesList: function(){
 		setupBody();
+		studentMenu();
+		$('.header-title').html('Your Classes');
+		$('#classesTab').addClass("active");
 		var studentActivityList = new StudentActivitiesListView();
 		$('body').append(studentActivityList.render().el);
 
@@ -216,8 +241,11 @@ var Router = Backbone.Router.extend({
 
 	studentCalendar: function(){
 		setupBody();
+		studentMenu();
+		$('.header-title').html('Your Calendar');
+		$('#calendarTab').addClass("active");
 		var studentCalendar = new StudentCalendarView();
-		$('body').append(studentCalendar.render().el);
+		$('.main').append(studentCalendar.render().el);
 		$('#calendar').fullCalendar({
 	      theme: true,
 	      header: {
@@ -239,6 +267,9 @@ var Router = Backbone.Router.extend({
 
 	studentContactsList: function(){
 		setupBody();
+		studentMenu();
+		$('.header-title').html('Your Instructors');
+		$('#contactsTab').addClass("active");
 		//container for contacts list
 		var trainersListContainer = new TrainersListContainerView();
 		$('body').append(trainersListContainer.render().el);

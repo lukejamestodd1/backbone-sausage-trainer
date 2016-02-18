@@ -55,10 +55,34 @@ var LoginFormView = Backbone.View.extend({
   }
 });
 
+//for trainer header title and controls
+var MenuHeaderView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'dash-title',
+  template: $('#trainer-header-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
+//for student header title and controls
+var StudentHeaderView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'dash-title',
+  template: $('#student-header-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
 //for trainer welcome/dashboard area
 var TrainerDashContainerView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid',
   template: $('#trainer-dashboard-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -70,7 +94,7 @@ var TrainerDashContainerView = Backbone.View.extend({
 //for student welcome/dashboard area
 var StudentDashContainerView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid',
   template: $('#student-dashboard-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -105,7 +129,7 @@ var ActivityItemView = Backbone.View.extend({
 //for student activies list
 var StudentActivitiesListView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid',
   template: $('#student-activities-list-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -128,7 +152,7 @@ var StudentActivityItemView = Backbone.View.extend({
 //for trainer calendar
 var TrainerCalendarView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid',
   template: $('#trainer-calendar-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -140,7 +164,7 @@ var TrainerCalendarView = Backbone.View.extend({
 //for student calendar
 var StudentCalendarView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid',
   template: $('#student-calendar-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -164,7 +188,7 @@ var ContactListContainerView = Backbone.View.extend({
 //for list of trainers a student is following container
 var TrainersListContainerView = Backbone.View.extend({
   tagName: 'div',
-  className: 'container',
+  className: 'container-fluid table-responsive col-xs-12 col-md-12',
   template: $('#student-contacts-list-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
@@ -208,25 +232,12 @@ var StudentActivityDetailView = Backbone.View.extend({
   }
 });
 
-//PARTS OF PAGES
 //for main container - holds dash(header text, navigation),
 //colour bar, and containers/lists below
 var MainContainer = Backbone.View.extend({
   tagName: 'div',
   className: 'container main',
   template: $('#container-template').html(),
-  render: function(){
-    var html = Mustache.render(this.template);
-    this.$el.html(html);
-    return this;
-  }
-});
-
-//for trainer header title and controls
-var TrainerHeader = Backbone.View.extend({
-  tagName: 'div',
-  className: 'dash-title',
-  template: $('#trainer-header-template').html(),
   render: function(){
     var html = Mustache.render(this.template);
     this.$el.html(html);
