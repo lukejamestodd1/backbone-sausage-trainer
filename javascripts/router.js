@@ -1,124 +1,195 @@
-var app = {}
+
+//wrap it all in app object when finished
+var sausageTrainerApp = {};
+
+// helper function
+var setupBody = function() {
+  if ($('.navbar').length === 0) {
+    console.log('Creating nav bar.');
+    // no current nav bar found so append to body
+    var navBar = new NavBarView();
+    $('body').append(navBar.render().el);
+    $('.navbar').attr('role', 'navigation');
+  }
+
+  // collect all elements and remove all except nav bar, footer and scripts
+  $('body').children().each( function(child) {
+    if ($(this).is('script') || $(this).is('nav')) {
+    } else {
+      $(this).remove();
+    }
+  });
+};
+
+
+//========== ROUTER ========= //
+
 
 var Router = Backbone.Router.extend({
+
 	routes: {
 		"": "showIndex",
-		"show/": "showSingleActivity"
-		// "dash/": "showDash",
-		
-
-		// "users/": "showUsers",
-		// "activities/": "showActivities",
-
-		// "login/": "showLogin",
-		// "sign_up/": "showSignUp",
-		
-		
-		// "users/:id" : "showUser",
-		// "users/new": "newUser",
-		// "activities/new": "newActivity",		
-		// "venues": "showVenues",
-		// "venues/:id": "showVenue"
-		
+		"login": "login",
+		// "signup": "signUp",
+    //
+		// "trainer/dash": "trainerDash",
+		"trainer/activities": "trainerActivitiesList",
+		// "trainer/activities/:id": "trainerActivityDetails",
+		// "trainer/activities/new": "trainerActivityCreate",
+		// "trainer/activities/edit": "trainerActivityEdit",
+		"trainer/contacts": "trainerContactsList",
+		// "trainer/contacts/message": "trainerSendMessage",
+		// "trainer/calendar": "trainerCalendar",
+    //
+		// "student/dash": "studentDash",
+		"student/activities": "studentActivitiesList",
+		// "student/activities/:id": "studentActivityDetails",
+		// "student/activities/:id/book": "studentActivityBook",
+		"student/contacts": "studentContactsList",
+		//	"student/contacts/:id": "studentTrainerDetail",
+		// "student/calendar": "studentCalendar"
 	},
 
-	//wrap the index page in a view so can press back
 	showIndex: function(){
+    console.log('Index route loading...');
+    // index page made up of:
+    // nav bar
+    // welcome/splash screen view
+    // footer
+    setupBody();
 
-		//shows all users
-		var users = new Users();
-		users.fetch().done(function() {
-			users.each(function(person) {
-				var view = new UserItemView({ model: person});
-				$('.users-list').append(view.render().el);
-			});
-		});
+    var splashCarousel = new CarouselView();
+    $('body').append(splashCarousel.render().el);
+    $('.carousel').carousel({ interval: 5000 });
 
-		//shows all activites
-		var activities = new Activities();
-		activities.fetch().done(function(){
-			activities.each(function(instance){
-				var view = new ActivityItemView({ model: instance});
-				$('.activities-list').append(view.render().el);
-			});
-		});
+    var splashMain = new SplashMainView();
+    $('body').append(splashMain.render().el);
 
-		//shows one activity
-		// console.log('index page function');
-		// var activity = new Activity({id: 11});
-		// activity.fetch().done(function(){
-		// 	//make a view showing the activity
-		// 	var activityView = new ActivityDetailView({model: activity});
-		// 	$('.activity-detail').append(activityView.render().el);
-		// });
-
-		//show one activity plus trainer info,
-		//venue info, participants list
-		//change from hard coded when more data exists in DB
-		console.log('SHOW PAGE');
-		var activity = new Activity({id: 11});
-		activity.fetch().done(function(){
-			//make a view showing the activity
-			var activityView = new ActivityDetailView({model: activity});
-			$('.activity-detail').append(activityView.render().el);
-
-			var instructor = new User({id: activity.get('user_id')});
-			instructor.fetch().done(function(){
-				var instructorView = new UserItemView({model: instructor});
-				$('.user-detail').append(instructorView.render().el);
-
-				//need more venue data in DB for this to work
-				var venue = new Venue({id: activity.get('venue_id')});
-				venue.fetch().done(function(){
-					var venueView = new VenueDetailView({model: venue});
-					$('.venue-detail').append(venueView.render().el);
-
-					//need more data in DB for this to work
-					var activityType = new ActivityType({id: activity.get('activity_type_id')});
-					activityType.fetch().done(function(){
-						var activityTypeView = new ActivityTypeDetailView({model: activityType});
-						$('.activity-type-detail').append(activityTypeView.render().el);
-					});
-				});
-			});
-		});
-
-		
-
-
-
-		//var participants = new Participants({activity_id: activity[:id]});
+    var footer = new FooterView();
+    $('body').append(footer.render().el);
 	},
 
-	showSingleActivity: function(){
-		console.log('HELLO');
-		var activity = new Activity({id: 12});
-		activity.fetch().done(function(){
-	
-			var activityView = new ActivityDetailView({model: activity})
-			$('.activity-detail').append(view.render().el);
+	login: function(){
+		console.log("Login route loading...");
+
+    setupBody();
+
+    var loginForm = new LoginFormView();
+    $('body').append(loginForm.render().el);
+
+    var footer = new FooterView();
+    $('body').append(footer.render().el);
+	},
+
+	signUp: function(){
+
+	},
+
+	trainerDash: function(){
+
+	},
+
+	trainerActivitiesList: function(){
+		setupBody();
+		var trainersActivityList = new TrainerActivitiesListView();
+		$('body').append(trainersActivityList.render().el);
+
+		//activities list with
+		var activities = new Activities();
+		activities.fetch().done(function() {
+			activities.each(function(instance) {
+				var activityItem = new ActivityItemView({ model: instance});
+				$('.activities-list').append(activityItem.render().el);
+			});
 		});
+
+	},
+
+	trainerActivityDetails: function(){
+
+	},
+
+	trainerActivityCreate: function(){
+
+	},
+
+	trainerActivityEdit: function(){
+
+	},
+
+	trainerContactsList: function(){
+		setupBody();
+		//container for contacts list
+		var contactListContainer = new ContactListContainerView();
+		$('body').append(contactListContainer.render().el);
+
+		//contacts list with user data
+		var contacts = new Contacts();
+		contacts.fetch().done(function() {
+			contacts.each(function(person) {
+				var contactsList = new ContactItemView({ model: person});
+				$('.users-list').append(contactsList.render().el);
+			});
+		});
+	},
+
+	trainerSendMessage: function(){
+
+	},
+
+	trainerCalendar: function(){
+
+	},
+
+	studentDash: function(){
+
+	},
+
+	studentActivitiesList: function(){
+		setupBody();
+		var studentActivityList = new StudentActivitiesListView();
+		$('body').append(studentActivityList.render().el);
+
+		//activities list with
+		var activities = new Activities();
+		activities.fetch().done(function() {
+			activities.each(function(instance) {
+				var activityItem = new ActivityItemView({ model: instance});
+				$('.activities-list').append(activityItem.render().el);
+			});
+		});
+	},
+
+	studentActivityDetails: function(){
+
+	},
+
+	studentActivityBook: function(){
+
+	},
+
+	studentContactsList: function(){
+		setupBody();
+		//container for contacts list
+		var trainersListContainer = new TrainersListContainerView();
+		$('body').append(trainersListContainer.render().el);
+
+		//contacts list with user data
+		var contacts = new Contacts();
+		contacts.fetch().done(function() {
+			contacts.each(function(person) {
+				var contactsList = new ContactItemView({ model: person});
+				$('.users-list').append(contactsList.render().el);
+			});
+		});
+	},
+
+	studentTrainerDetail: function(){
+
+	},
+
+	studentCalendar: function(){
+
 	}
-	
-	// showDash: function(){
 
-	// 	//hide the previous page
-
-	// 	//find the right user from API
-	// 	var user = new User({ id: id});
-	// 	user.fetch();
-
-	// 	//find classes that belong to same user id
-	// 	var activities = new Activities //(filter by user ID)
-
-	// 	//create a view to show username, photo, activites
-	// 	var userDashView = new UserDashView({ model: user});
-
-	// 	//append to container on dash.html
-	// 	$('#si').append(view.render().el);
-	// },
-
-	
-
-	
 });

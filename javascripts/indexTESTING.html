@@ -24,12 +24,12 @@
 </script>
 
 <script id="activity-item-template" type="text/underscoreTemplate">
-	<div>{{title}}</div>
+	<div>{{activity_type_name}}</div>
 	<div>{{created_at}}</div>
 </script>
 
  <script id="activity-detail-view" type="text/moustacheTemplate">
-    <h1>{{ title }}</h1>
+    <h1>{{ activity_type_name }}</h1>
   </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
@@ -37,7 +37,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
 <script src="models.js"></script>
+<script src="views.js"></script>
 <script src="router.js"></script>
-<script src="app.js"></script>
+
 </body>
 </html>

@@ -23,7 +23,7 @@ var ActivityType = Backbone.Model.extend({
 });
 
 var Contact = Backbone.Model.extend({
-	urlRoot: 'http://localhost:3000/api/contacts'
+	urlRoot: 'http://localhost:3000/api/users/10/contacts'
 });
 
 var Group = Backbone.Model.extend({
@@ -67,7 +67,7 @@ var ActivityTypes = Backbone.Collection.extend({
 
 var Contacts = Backbone.Collection.extend({
 	model: Contact,
-	url: 'http://localhost:3000/api/contacts'
+	url: 'http://localhost:3000/api/users/10/contacts'
 });
 
 var Groups = Backbone.Collection.extend({

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sausage Trainer</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/js/bootstrap-datetimepicker.min.js"></script>
+
+</head>
+<body>
+
+<script id="navBarTemplate" type="text/mustacheTemplate">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Sausage Trainers</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href="#trainer/contacts">trainerContacts</a>
+        </li>
+        <li>
+          <a href="#student/contacts">studentContacts</a>
+        </li>
+        <li>
+          <a href="#trainer/activities">trainerActivities</a>
+        </li>
+        <li>
+          <a href="#student/activities">studentActivities</a>
+        </li>
+        <li>
+          <a href="#login"><span class="glyphicon glyphicon-user"></span> Login</a>
+        </li>
+        <li>
+          <a href="#signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</script>
+
+<script id="carouselTemplate" type="text/mustacheTemplate">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+      <div class="carousel-caption">
+        <h2>Caption 1</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+      <div class="carousel-caption">
+        <h2>Caption 2</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+      <div class="carousel-caption">
+        <h2>Caption 3</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="icon-next"></span>
+  </a>
+</script>
+
+<script id="splashMainTemplate" type="text/mustacheTemplate">
+  <div class="container">
+    <div class="row">
+
+      <h1 class="col-12">Let Sausage trainers run you business</h1>
+
+      <p class="col-xs-12 col-sm-12 col-md-5 col-lg-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eius animi molestiae commodi repellat laborum voluptas ad numquam aliquam culpa libero odit, officiis, aut quibusdam. Praesentium velit a alias. Facere.</p>
+
+      <img src="http://placehold.it/350x150" class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+    </div>
+  </div>
+</script>
+<script id="loginFormTemplate" type="text/mustacheTemplate">
+  <div class="login-form-box">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form>
+          <h2>Login</h2>
+          <h4>No account? Sign up <a href="">here</a></h4>
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="form-group">
+              <input placeholder="Username" class="form-control input-lg">
+            </div>
+            <div class="form-group">
+              <input placeholder="Password" class="form-control input-lg">
+            </div>
+          </div>
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3"><button>Sign In</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="footerTemplate" type="text/MustacheTemplate">
+  <div class="container">
+    <a href="link_to_our_github_repo"><i class="fa fa-github fa-2x gh-symbol"></i></a>
+    <p class="text-muted"><i class="fa fa-copyright"></i>This website is fully owned by TeamSaus productions</p>
+  </div>
+</script>
+
+<script id="trainer-contacts-list-template" type="text/mustacheTemplate">
+  
+    <div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Contacts - Trainers</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="classes.html">Classes</a></li>
+        <li role="presentation"><a href="#">Calendar</a></li>
+        <li role="presentation"><a href="view_all_students.html">Contacts</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid title-colourgraph">
+      <h3>Your Contacts</h3>
+      <button href="message_students.html">Message</button>
+      <div class="table-responsive col-xs-12">
+
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-xs-2">Name</th>
+                <th class="col-xs-10">Email</th>
+              </tr>
+            </thead>
+            <tbody class="users-list">
+              <tr>
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</script>
+
+<script id="student-contacts-list-template" type='text/underscoreTemplate'>
+    <div class="dash-title">
+      <h1 class="header-title">Who Youre Following</h1>
+      
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
+        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
+        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
+      </ul>
+    </div>
+    <hr class="colorgraph">
+
+    <div class="table-responsive col-xs-12 col-md-12">
+
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-xs-3 col-md-4">Trainers Name</th>
+              <th class="col-xs-4 col-md-3">Date of Next Class</th>
+              <th class="col-xs-5 col-md-5">Name of Next Class</th>
+            </tr>
+          </thead>
+          <tbody class="users-list">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+</script>
+
+<script id="user-item-template" type="text/mustacheTemplate">
+    <th><input type="checkbox">       {{username}}</th>
+    <th>{{ email }}</a></th>
+  </script>
+
+<script id="trainer-activities-list-template" type="text/mustacheTemplate"> 
+<div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Classes - Trainers</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="classes.html">Classes</a></li>
+        <li role="presentation"><a href="#">Calendar</a></li>
+        <li role="presentation"><a href="view_all_students.html">Contacts</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="title-colourgraph table-responsive col-xs-12">
+          <h3>All Classes</h3>
+          <!-- Confirmed classes -->  
+          <div class="table-responsive col-xs-12 col-md-12">
+
+            <div class="row">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-xs-2">Date</th>
+                    <th class="col-xs-3">Class</th>
+                    <th class="col-xs-3">Location</th>
+                    <th class="col-xs-2">Status</th>
+                    <th class="col-xs-2">Places Left</th>
+                  </tr>
+                </thead>
+                <tbody class="activities-list">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>      
+
+      </div>
+    
+    </div>
+</script>
+
+<script id="student-activities-list-template" type="text/mustacheTemplate">
+   <div class="dash-title">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">Your Classes - Students</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="student_classes.html">Classes</a></li>
+        <li role="presentation"><a href="calendar_students.html">Calendar</a></li>
+        <li role="presentation"><a href="followed_instructors.html">Followed Instructors</a></li>
+      </ul>
+    </div>
+    
+    <hr class="colorgraph">
+
+    <div class="container-fluid">
+
+      <div class="table-responsive col-xs-12 col-md-12">
+
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-xs-2">Date</th>
+                <th class="col-xs-3">Class</th>
+                <th class="col-xs-3">Instructor</th>
+                <th class="col-xs-4">Location</th>
+              </tr>
+            </thead>
+            <tbody class="activities-list">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    </div>
+</script>
+
+<script id="activity-item-template" type="text/underscoreTemplate">
+  <th>{{ date }}</th>
+  <th>{{ activity_type_name }}</th>
+  <th><a href="trainer_show">{{ class name }}</a></th>
+  <th>{{ participant_count }}</th>
+  <th>{{ status }}</th>
+  <th>{{ places left }}</th>
+</script>
+
+<script id="student-activity-item-template" type="text/underscoreTemplate">
+  <th>{{ date }}</th>
+  <th><a href="#actvity/:id">{{ class name }}</a></th>
+  <th><a href="#user/:id">{{ instructor name }}</a></th>
+  <th>{{ location }}</th>
+</script>
+<script src="javascripts/models.js"></script>
+<script src="javascripts/views.js"></script>
+<script src="javascripts/router.js"></script>
+<script src="javascripts/app.js"></script>
+</body>
+</html>
