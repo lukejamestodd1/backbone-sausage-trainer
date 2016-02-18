@@ -30,24 +30,27 @@ var Router = Backbone.Router.extend({
 	routes: {
 		"": "showIndex",
 		"login": "login",
-		// "signup": "signUp",
-    //
+		"signup": "signUp",
+
 		"trainer/dash": "trainerDash",
 		"trainer/activities": "trainerActivitiesList",
+		"trainer/calendar": "trainerCalendar",
+		"trainer/contacts": "trainerContactsList",
+
 		// "trainer/activities/:id": "trainerActivityDetails",
 		// "trainer/activities/new": "trainerActivityCreate",
 		// "trainer/activities/edit": "trainerActivityEdit",
-		"trainer/contacts": "trainerContactsList",
 		// "trainer/contacts/message": "trainerSendMessage",
-		// "trainer/calendar": "trainerCalendar",
-    //
+		
 		"student/dash": "studentDash",
 		"student/activities": "studentActivitiesList",
+		"student/calendar": "studentCalendar",
+		"student/contacts": "studentContactsList",
+
 		// "student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
-		"student/contacts": "studentContactsList",
 		//	"student/contacts/:id": "studentTrainerDetail",
-		// "student/calendar": "studentCalendar"
+		
 	},
 
 	showIndex: function(){
@@ -104,18 +107,9 @@ var Router = Backbone.Router.extend({
 				$('.activities-list').append(activityItem.render().el);
 			});
 		});
-
 	},
 
-	trainerActivityDetails: function(){
-
-	},
-
-	trainerActivityCreate: function(){
-
-	},
-
-	trainerActivityEdit: function(){
+	trainerCalendar: function(){
 
 	},
 
@@ -135,14 +129,24 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
+	trainerActivityDetails: function(){
+
+	},
+
+	trainerActivityCreate: function(){
+
+	},
+
+	trainerActivityEdit: function(){
+
+	},
+
+	
 	trainerSendMessage: function(){
 
 	},
 
-	trainerCalendar: function(){
-
-	},
-
+	
 	studentDash: function(){
 		setupBody();
 		var studentDash = new StudentDashContainerView();
@@ -164,11 +168,7 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
-	studentActivityDetails: function(){
-
-	},
-
-	studentActivityBook: function(){
+	studentCalendar: function(){
 
 	},
 
@@ -187,12 +187,16 @@ var Router = Backbone.Router.extend({
 			});
 		});
 	},
-
-	studentTrainerDetail: function(){
+	
+	studentActivityDetails: function(){
 
 	},
 
-	studentCalendar: function(){
+	studentActivityBook: function(){
+
+	},
+
+	studentTrainerDetail: function(){
 
 	}
 
