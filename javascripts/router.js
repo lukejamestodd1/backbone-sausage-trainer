@@ -30,24 +30,27 @@ var Router = Backbone.Router.extend({
 	routes: {
 		"": "showIndex",
 		"login": "login",
-		// "signup": "signUp",
-    //
+		"signup": "signUp",
+
 		"trainer/dash": "trainerDash",
 		"trainer/activities": "trainerActivitiesList",
+		"trainer/calendar": "trainerCalendar",
+		"trainer/contacts": "trainerContactsList",
+
 		// "trainer/activities/:id": "trainerActivityDetails",
 		// "trainer/activities/new": "trainerActivityCreate",
 		// "trainer/activities/edit": "trainerActivityEdit",
-		"trainer/contacts": "trainerContactsList",
 		// "trainer/contacts/message": "trainerSendMessage",
-		// "trainer/calendar": "trainerCalendar",
-    //
+		
 		"student/dash": "studentDash",
 		"student/activities": "studentActivitiesList",
+		"student/calendar": "studentCalendar",
+		"student/contacts": "studentContactsList",
+
 		// "student/activities/:id": "studentActivityDetails",
 		// "student/activities/:id/book": "studentActivityBook",
-		"student/contacts": "studentContactsList",
 		//	"student/contacts/:id": "studentTrainerDetail",
-		// "student/calendar": "studentCalendar"
+		
 	},
 
 	showIndex: function(){
@@ -104,19 +107,29 @@ var Router = Backbone.Router.extend({
 				$('.activities-list').append(activityItem.render().el);
 			});
 		});
-
 	},
 
-	trainerActivityDetails: function(){
-
-	},
-
-	trainerActivityCreate: function(){
-
-	},
-
-	trainerActivityEdit: function(){
-
+	trainerCalendar: function(){
+		setupBody();
+		var trainerCalendar = new TrainerCalendarView();
+		$('body').append(trainerCalendar.render().el);
+		$('#calendar').fullCalendar({
+	      theme: true,
+	      header: {
+	        left: 'prev,next today',
+	        center: 'title',
+	        right: 'month,agendaWeek,agendaDay'
+	      },
+	      defaultDate: '2016-01-12',
+	      editable: true,
+	      eventLimit: true, // allow "more" link when too many events
+	      events: [
+	        {
+	          title: 'All Day Event',
+	          start: '2016-01-01'
+	        }
+	      ]
+  	});
 	},
 
 	trainerContactsList: function(){
@@ -135,14 +148,24 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
+	trainerActivityDetails: function(){
+
+	},
+
+	trainerActivityCreate: function(){
+
+	},
+
+	trainerActivityEdit: function(){
+
+	},
+
+	
 	trainerSendMessage: function(){
 
 	},
 
-	trainerCalendar: function(){
-
-	},
-
+	
 	studentDash: function(){
 		setupBody();
 		var studentDash = new StudentDashContainerView();
@@ -164,12 +187,27 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
-	studentActivityDetails: function(){
-
-	},
-
-	studentActivityBook: function(){
-
+	studentCalendar: function(){
+		setupBody();
+		var studentCalendar = new StudentCalendarView();
+		$('body').append(studentCalendar.render().el);
+		$('#calendar').fullCalendar({
+	      theme: true,
+	      header: {
+	        left: 'prev,next today',
+	        center: 'title',
+	        right: 'month,agendaWeek,agendaDay'
+	      },
+	      defaultDate: '2016-01-12',
+	      editable: true,
+	      eventLimit: true, // allow "more" link when too many events
+	      events: [
+	        {
+	          title: 'All Day Event',
+	          start: '2016-01-01'
+	        }
+	      ]
+  	});
 	},
 
 	studentContactsList: function(){
@@ -188,11 +226,15 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
-	studentTrainerDetail: function(){
+	studentActivityDetails: function(){
 
 	},
 
-	studentCalendar: function(){
+	studentActivityBook: function(){
+
+	},
+
+	studentTrainerDetail: function(){
 
 	}
 
