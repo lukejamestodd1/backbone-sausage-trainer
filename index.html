@@ -473,6 +473,47 @@
     <th>{{ email }}</a></th>
   </script>
 
+<script id="trainer-activity-detail-template" type="text/mustacheTemplate">
+    <h1>{{ activity_type_name }}</h1>
+    <hr class="colorgraph">
+    <h3>{{ date }}</h3>
+    <h3>Location</h3>
+    <p>{{ venue_details.name }}, {{ venue_details.address }}</p>
+    <h3>Class Description</h3>
+    <p>{{ description }}</p>
+    <h3>Current attendees</h3>
+    <p>{{ participant_count }}</p>
+    <h3>Current fees: {{ cost }}</h3>
+    <button>Edit this class</button>
+    <button>Delete this class</button>
+</script>
+
+<script id="trainer-activity-create-template" type="text/mustacheTemplate"> 
+</script>
+
+<script id="trainer-activity-edit-template" type="text/mustacheTemplate"> 
+</script>
+
+<script id="trainer-send-message-template" type="text/mustacheTemplate"> 
+</script>
+
+<script id="container-template" type="text/mustacheTemplate">
+  <div></div>
+</script>
+
+<script id="trainer-header-template" type="text/mustacheTemplate">
+      <img src="http://placehold.it/140x100" alt="" class="avatar">
+      <h1 class="header-title">{{activity_type_name}}</h1>
+      <ul class="nav nav-tabs navbar-right tabs-title">
+        <li role="presentation" class="active"><a href="#trainer/activities">Classes</a></li>
+        <li role="presentation"><a href="#trainer/calendar">Calendar</a></li>
+        <li role="presentation"><a href="#trainer/contacts">Contacts</a></li>
+      </ul>
+</script>
+
+<script id="colour-bar-template" type="text/mustacheTemplate">
+  <hr class="colorgraph">
+</script>
 
 <script src="javascripts/models.js"></script>
 <script src="javascripts/views.js"></script>
@@ -480,3 +521,11 @@
 <script src="javascripts/app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
