@@ -188,7 +188,26 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentCalendar: function(){
-
+		setupBody();
+		var studentCalendar = new StudentCalendarView();
+		$('body').append(studentCalendar.render().el);
+		$('#calendar').fullCalendar({
+	      theme: true,
+	      header: {
+	        left: 'prev,next today',
+	        center: 'title',
+	        right: 'month,agendaWeek,agendaDay'
+	      },
+	      defaultDate: '2016-01-12',
+	      editable: true,
+	      eventLimit: true, // allow "more" link when too many events
+	      events: [
+	        {
+	          title: 'All Day Event',
+	          start: '2016-01-01'
+	        }
+	      ]
+  	});
 	},
 
 	studentContactsList: function(){
