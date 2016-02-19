@@ -330,9 +330,11 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
-	studentActivityBook: function(){
-
-	},
+	// studentActivityBook: function(id){
+	// 	setupBody();
+	// 	studentMenu();
+	// 	var studentBook = new Activity({id: id })
+	// },
 
 	studentTrainerDetail: function(id){
 		setupBody();
