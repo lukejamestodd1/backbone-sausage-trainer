@@ -128,7 +128,7 @@
       <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         <form>
           <h2>Login</h2>
-          <h4>No account? Sign up <a href="">here</a></h4>
+          <h4>No account? Sign up <a href="#signup">here</a></h4>
           <hr class="colorgraph">
           <div class="row">
             <div class="form-group">
@@ -155,10 +155,56 @@
   </div>
 </script>
 
+<script id="signupTemplate" type="text/MustacheTemplate">
+  <div class="sign-up-form-box">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-sm-offset-2 col-md-offset-3">
+          <form>
+            <h2>Sign Up</h2>
+            <h4>Already have an account? Login <a href="#login">here</a></h4>
+            <hr class="colorgraph">
+            <div class="row">
+              <div class="form-group">
+                <label for="">Username</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Password Confirmation</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label>Add a photo</label>
+                <input type="file">
+              </div>
+              <div class="btn-group-verical" role="group">
+                <label for="">Select those that apply to you: </label>
+                <input type="checkbox">  I am an instructor
+                <input type="checkbox">  I am a student
+              </div>
+            </div>
+
+            <hr class="colorgraph">
+            <div class="row form-btn">
+              <div class="col-xs-12 col-md-6 col-md-offset-3"><button>Sign Up</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</script>
+
 <script id="trainer-dashboard-template" type="text/underscoreTemplate">
       <div class="row">
         <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
-          <h1>Space for new homepage functionality</h1>
+          <h1>Welcome back, Sausage</h1>
         </div>
         <!-- Calendar Here -->
         <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
@@ -177,12 +223,8 @@
                 <th class="col-xs-5 col-md-5">Location</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th>{hhh</th>
-                <th><a href="trainer_show">...</a></th>
-                <th>..</th>
-              </tr>
+            <tbody class="activities-list">
+              
             </tbody>
           </table>
         </div>
@@ -192,7 +234,7 @@
 <script id="student-dashboard-template" type="text/underscoreTemplate">
       <div class="row">
         <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
-          <h1>Space for new homepage functionality</h1>
+          <h1>Welcome back, Sausage</h1>
         </div>
         <!-- Calendar Here -->
         <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
@@ -211,12 +253,8 @@
                 <th class="col-xs-5 col-md-5">Location</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th>hello</th>
-                <th><a href="trainer_show">dhfhf</a></th>
-                <th>hfnhf</th>
-              </tr>
+            <tbody class="activities-list">
+            
             </tbody>
           </table>
         </div>
@@ -236,8 +274,8 @@
                     <th class="col-xs-2">Date</th>
                     <th class="col-xs-3">Class</th>
                     <th class="col-xs-3">Location</th>
-                    <th class="col-xs-2">Status</th>
-                    <th class="col-xs-2">Places Left</th>
+                    <th class="col-xs-2">Confirmed</th>
+                    <th class="col-xs-2">Participants</th>
                   </tr>
                 </thead>
                 <tbody class="activities-list">
@@ -257,7 +295,7 @@
               <tr>
                 <th class="col-xs-2">Date</th>
                 <th class="col-xs-3">Class</th>
-                <th class="col-xs-3">Instructor</th>
+                <th class="col-xs-3">Instructor(id)</th>
                 <th class="col-xs-4">Location</th>
               </tr>
             </thead>
@@ -270,19 +308,18 @@
 </script>
 
 <script id="activity-item-template" type="text/underscoreTemplate">
-  <th>{{ date }}</th>
-  <th>{{ activity_type_name }}</th>
-  <th><a href="trainer_show">{{ class name }}</a></th>
+  <th>{{ created_at }}</th>
+  <th><a href='#trainer/activities/{{ id }}'>{{ activity_type_name }}</a></th>
+  <th>{{ venue_details.name }}</th>
+  <th>{{ confirmed }}</th>
   <th>{{ participant_count }}</th>
-  <th>{{ status }}</th>
-  <th>{{ places left }}</th>
 </script>
 
 <script id="student-activity-item-template" type="text/underscoreTemplate">
-  <th>{{ date }}</th>
-  <th><a href="#actvity/:id">{{ class name }}</a></th>
-  <th><a href="#user/:id">{{ instructor name }}</a></th>
-  <th>{{ location }}</th>
+  <th>{{ created_at }}</th>
+  <th><a href="#student/activities/{{ id }}">{{ activity_type_name }}</a></th>
+  <th class="userColumn"><a href="#student/users/{{ user_id }}">{{ user_id }}</a></th>
+  <th>{{ venue_details.name }}, {{ venue_details.address }}</th>
 </script>
 
 <script id="trainer-calendar-template" type="text/mustacheTemplate">
@@ -325,7 +362,7 @@
 </script>
 
 <script id="student-contacts-list-template" type='text/underscoreTemplate'>
-  
+
       <div class="row">
         <table class="table table-striped">
           <thead>
@@ -358,9 +395,9 @@
     <p>{{ description }}</p>
     <h3>Current attendees</h3>
     <p>{{ participant_count }}</p>
-    <h3>Current fees: {{ cost }}</h3>
-    <button>Edit this class</button>
-    <button>Delete this class</button>
+    <h3 id="cost">Current fees: {{ cost }}</h3>
+    <button id="editButton">Edit this class</button>
+    <button id="deleteButton">Delete this class</button>
 </script>
 
 <script id="student-activity-detail-template" type="text/mustacheTemplate">
@@ -394,9 +431,6 @@
 </script>
 
 <script id="trainer-activity-edit-template" type="text/mustacheTemplate"> 
-</script>
-
-<script id="trainer-send-message-template" type="text/mustacheTemplate"> 
 </script>
 
 <script id="container-template" type="text/mustacheTemplate">
@@ -457,7 +491,52 @@
     </div>
 </script>
 
+<script id="student-view-trainer-details-template" type="text/mustacheTemplate"> 
+  <div class="row title-colourgraph">
+        <h3>About {{ username }}</h3>
+        <div class="title-colourgraph col-xs-12 col-md-9">
+          <div class="profile-bio-box col-xs-12">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, dignissimos voluptates facilis minus pariatur, incidunt architecto aut repellat sunt tempora non facere nobis dolorem! Sunt cupiditate tenetur, suscipit velit autem.</p>
+          </div>
+          <div class="profile-button">
+            <button href="message_trainer.html">Message {{ instructor name }}</button>
+            <button>&#9734; Follow {{ instructor name }}</button>
+          </div>
+        </div>
 
+        <!-- Calendar Here -->
+        <div class="calendar-box col-xs-12 col-md-3">
+          <p>Integrate calendar here </p>
+        </div>
+
+      </div>    
+
+    </div>
+    
+        <h3>{{username}} - Upcoming Classes</h3>
+        <div class="table-responsive col-xs-12">
+          <div class="row">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="col-xs-3 col-md-3">Date</th>
+                  <th class="col-xs-4 col-md-4">Class</th>
+                  <th class="col-xs-5 col-md-5">Location</th>
+                </tr>
+              </thead>
+              <tbody class="activities-list">
+                <tr>
+                  <th>{{ date }}</th>
+                  <th><a href="class_show">{{ class name }}</a></th>
+                  <th>{{ location }}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+</script>
 
 <script src="javascripts/models.js"></script>
 <script src="javascripts/views.js"></script>
