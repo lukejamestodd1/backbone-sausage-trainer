@@ -70,21 +70,21 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <div class="fill fill1"></div>
+      <div class="fill1"></div>
       <div class="carousel-caption">
         <h2>The #1 Personal Trainer Tool</h2>
       </div>
     </div>
     <div class="item">
-      <div class="fill fill2"></div>
+      <div class="fill2"></div>
       <div class="carousel-caption">
-        <h2>Manage Your Bookings</h2>
+        <h2>Manage Your Classes</h2>
       </div>
     </div>
     <div class="item">
-      <div class="fill fill3"></div>
+      <div class="fill3"></div>
       <div class="carousel-caption">
-        <h2>Use For Any Group Activity</h2>
+        <h2>Perfect For All Group Activities</h2>
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@
 
       <img src="http://www.zestrockingham.com.au/wp-content/uploads/2011/11/ptrainer.jpg" class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 
-      <h1 class="col-xs-12 col-sm-12 col-md-5 col-lg-5 pull-right">Get Back to What You do Best</h1>
+      <h1 class="col-xs-12 col-sm-12 col-md-5 col-lg-5 pull-right">Do What You do Best</h1>
 
       <p class="col-xs-12 col-sm-12 col-md-5 col-lg-5 pull-right">Sausage Trainers was designed for you to do what you do best by cutting administration time, making your life easier and time more valuable. Combining an easy booking, payment and calendar system you never have to worry about these problems again.</p>
     </div>
@@ -543,6 +543,37 @@
         </div>
 
       </div>
+</script>
+
+<script id="student-booking-form-template" type="text/mustacheTemplate">
+
+    <div class="sign-up-form-box">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-sm-offset-2 col-md-offset-3">
+          <form>
+            <h2>Book {{ Class Name }}</h2>
+            <hr class="colorgraph">
+            <div class="row">
+              <h3>{{ Date }}</h3>
+              <h3>Location</h3>
+              <p>{{ location }}</p>
+              <h3>Price: {{ cost }}</h3>
+              <h3>Places left: {{ places left }}</h3>
+              <div class="btn-group-verical" role="group">
+                <label for="">Select to book this class </label>
+                <input type="checkbox">
+              </div>
+            </div>
+
+            <hr class="colorgraph">
+            <div class="row form-btn">
+              <div class="col-xs-12 col-md-6 col-md-offset-3 form-btn"><button>Book This Class</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
 </script>
 
 <script src="javascripts/models.js"></script>
