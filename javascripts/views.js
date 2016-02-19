@@ -115,7 +115,7 @@ var TrainerActivitiesListView = Backbone.View.extend({
   }
 });
 
-//for activity list item
+//for trainer activity list item
 var ActivityItemView = Backbone.View.extend({
   tagName: 'tr',
   template: $('#activity-item-template').html(),
@@ -138,7 +138,7 @@ var StudentActivitiesListView = Backbone.View.extend({
   }
 });
 
-//for student activity list items
+//for student activity list item
 var StudentActivityItemView = Backbone.View.extend({
   tagName: 'tr',
   template: $('#student-activity-item-template').html(),
@@ -208,7 +208,7 @@ var ContactItemView = Backbone.View.extend({
   }
 });
 
-//for trainer single activity detail view
+//for trainer to view a single activity
 var ActivityDetailView = Backbone.View.extend({
   tagName: 'div',
   className: 'container',
@@ -220,7 +220,7 @@ var ActivityDetailView = Backbone.View.extend({
   }
 });
 
-//for student single activity detail view
+//for student to see a single activity
 var StudentActivityDetailView = Backbone.View.extend({
   tagName: 'div',
   className: 'container',
@@ -267,3 +267,17 @@ var TrainerSendMessageView = Backbone.View.extend({
     return this;
   }
 });
+
+//for student to view individual trainer
+var StudentTrainerDetailView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container-fluid',
+  template: $('#student-view-trainer-details-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template, this.model.toJSON());
+    this.$el.html(html);
+    return this;
+  }
+});
+
+

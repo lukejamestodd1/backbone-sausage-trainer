@@ -116,7 +116,7 @@ var Router = Backbone.Router.extend({
 	trainerDash: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Dashboard');
+		$('.header-title').html('Dashboard - trainer');
 		$('#dashTab').addClass("active");
 		var trainerDash = new TrainerDashContainerView();
 		$('.main').append(trainerDash.render().el);
@@ -125,7 +125,7 @@ var Router = Backbone.Router.extend({
 	trainerActivitiesList: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('My Classes');
+		$('.header-title').html('My Classes - trainer');
 		$('#classesTab').addClass("active");
 		
 		var trainersActivityList = new TrainerActivitiesListView();
@@ -144,7 +144,7 @@ var Router = Backbone.Router.extend({
 	trainerCalendar: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Calendar');
+		$('.header-title').html('Calendar - trainer');
 		$('#dashTab').addClass("active");
 
 		var trainerCalendar = new TrainerCalendarView();
@@ -171,7 +171,7 @@ var Router = Backbone.Router.extend({
 	trainerContactsList: function(){
 		setupBody();
 		setupMenu();
-		$('.header-title').html('Contacts');
+		$('.header-title').html('Contacts - trainer');
 		$('#contactsTab').addClass("active");
 
 		var contactListContainer = new ContactListContainerView();
@@ -189,9 +189,7 @@ var Router = Backbone.Router.extend({
 	trainerActivityDetails: function(id){
 		console.log('trainer activity detail view');
 		setupBody();
-
 		var activityItem = new Activity({id: id });
-		console.log(this);
 		activityItem.fetch().done(function(){
 			var trainerActivityDetails = new ActivityDetailView({model: activityItem});
 			$('body').append(trainerActivityDetails.render().el);
@@ -226,7 +224,7 @@ var Router = Backbone.Router.extend({
 	studentDash: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('Dashboard');
+		$('.header-title').html('Dashboard - student');
 		$('#dashTab').addClass("active");
 		var studentDash = new StudentDashContainerView();
 		$('.main').append(studentDash.render().el);
@@ -235,7 +233,7 @@ var Router = Backbone.Router.extend({
 	studentActivitiesList: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('My Classes');
+		$('.header-title').html('My Classes - student');
 		$('#classesTab').addClass("active");
 		var studentActivityList = new StudentActivitiesListView();
 		$('body').append(studentActivityList.render().el);
@@ -253,7 +251,7 @@ var Router = Backbone.Router.extend({
 	studentCalendar: function(){
 		setupBody();
 		studentMenu();
-		$('.header-title').html('Calendar');
+		$('.header-title').html('Calendar - student');
 		$('#calendarTab').addClass("active");
 		var studentCalendar = new StudentCalendarView();
 		$('.main').append(studentCalendar.render().el);
@@ -295,12 +293,13 @@ var Router = Backbone.Router.extend({
 		});
 	},
 
-	studentActivityDetails: function(){
+	studentActivityDetails: function(id){
 		setupBody();
-		var activityItem = new Activity({id: 33});
+		var activityItem = new Activity({id: id});
 		activityItem.fetch().done(function(){
-			var studentActivityDetails = new StudentActivityDetailView({model: activityItem});
-			$('body').append(studentActivityDetails.render().el);
+			//just using trainer template for this atm
+			var studentActivityDetails = new ActivityDetailView({model: activityItem});
+			$('.main').append(studentActivityDetails.render().el);
 		});
 	},
 
@@ -308,8 +307,28 @@ var Router = Backbone.Router.extend({
 
 	},
 
-	studentTrainerDetail: function(){
+	studentTrainerDetail: function(id){
+		setupBody();
+		studentMenu();
+		var trainer = new User({id: id});
+		trainer.fetch().done(function(){
+			var trainerDetailView = new StudentTrainerDetailView({model: trainer});
+			$('.header-title').html(trainer.get('username'));
+			$('.main').append(trainerDetailView.render().el);
 
+			//activities list
+			var activities = new Activities({user_id: id});
+			activities.fetch().done(function() {
+				activities.each(function(instance) {
+					var activityItem = new StudentActivityItemView({ model: instance});
+					$('.userColumn').css('display', 'none');
+					$('.activities-list').append(activityItem.render().el);
+
+				});
+			});
+
+		});
+		
 	},
 
 	testingArea: function(){
