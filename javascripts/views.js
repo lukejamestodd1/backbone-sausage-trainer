@@ -173,6 +173,19 @@ var TrainerCalendarView = Backbone.View.extend({
   }
 });
 
+//for trainer small calendar
+var TrainerCalendarSmallView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'col-xs-12 col-sm-4',
+  id: "calendar",
+  template: $('#trainer-calendar-small-template').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
 //for student calendar
 var StudentCalendarView = Backbone.View.extend({
   tagName: 'div',

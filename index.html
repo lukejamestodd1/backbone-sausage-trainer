@@ -203,18 +203,19 @@
 
 <script id="trainer-dashboard-template" type="text/underscoreTemplate">
       <div class="row">
-        <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
+
+        <div id="calendar" class="col-xs-12 col-sm-4"></div>
+
+        <div class="title-colourgraph col-xs-12 col-sm-8">
           <h1>Welcome back, Sausage</h1>
-        </div>
-        <!-- Calendar Here -->
-        <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
-          <p>Integrate calendar here </p>
-        </div>        
-      </div>
-      <h3>Next Classes</h3>
+        </div>    
+      
+
+     
       <!-- Confirmed classes -->  
-      <div class="table-responsive col-xs-12 col-md-12">
+      <div class="table-responsive pull-right col-xs-12 col-sm-7">
         <div class="row">
+         <h3>Next Classes</h3>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -232,19 +233,20 @@
 </script>
 
 <script id="student-dashboard-template" type="text/underscoreTemplate">
-      <div class="row">
-        <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
+     <div class="row">
+
+        <div id="calendar" class="col-xs-12 col-sm-4"></div>
+
+        <div class="title-colourgraph col-xs-12 col-sm-8">
           <h1>Welcome back, Sausage</h1>
-        </div>
-        <!-- Calendar Here -->
-        <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
-          <p>Integrate calendar here </p>
-        </div>        
-      </div>
-      <h3>Next Classes</h3>
+        </div>    
+      
+
+     
       <!-- Confirmed classes -->  
-      <div class="table-responsive col-xs-12 col-md-12">
+      <div class="table-responsive pull-right col-xs-12 col-sm-7">
         <div class="row">
+         <h3>Next Classes</h3>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -254,11 +256,12 @@
               </tr>
             </thead>
             <tbody class="activities-list">
-            
+              
             </tbody>
           </table>
         </div>
       </div>
+
 </script>
 
 <script id="trainer-activities-list-template" type="text/mustacheTemplate"> 
@@ -329,6 +332,10 @@
           </div>
         </div>
       </div>
+  </script>
+
+<script id="trainer-calendar-small-template" type="text/mustacheTemplate">
+
   </script>
 
 <script id="student-calendar-template" type="text/mustacheTemplate">

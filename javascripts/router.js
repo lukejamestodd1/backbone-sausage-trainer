@@ -124,6 +124,25 @@ var Router = Backbone.Router.extend({
 		var trainerDash = new TrainerDashContainerView();
 		$('.main').append(trainerDash.render().el);
 
+		//calendar small view
+		$('#calendar').fullCalendar({
+	      theme: true,
+	      header: {
+	        left: 'prev,next today',
+	        center: 'title',
+	        right: 'month,agendaWeek,agendaDay'
+	      },
+	      defaultDate: '2016-01-12',
+	      editable: true,
+	      eventLimit: true, // allow "more" link when too many events
+	      events: [
+	        {
+	          title: 'All Day Event',
+	          start: '2016-01-01'
+	        }
+	      ]
+  	});
+
 		//activities list
 		var activities = new Activities();
 		activities.fetch().done(function() {
@@ -133,6 +152,8 @@ var Router = Backbone.Router.extend({
 				$('.activities-list').append(activityItem.render().el);
 			});
 		});
+
+		
 	},
 
 	trainerActivitiesList: function(){
@@ -158,7 +179,7 @@ var Router = Backbone.Router.extend({
 		setupBody();
 		setupMenu();
 		$('.header-title').html('Calendar - trainer');
-		$('#dashTab').addClass("active");
+		$('#calendarTab').addClass("active");
 
 		var trainerCalendar = new TrainerCalendarView();
 		$('body').append(trainerCalendar.render().el);
@@ -241,6 +262,25 @@ var Router = Backbone.Router.extend({
 		$('#dashTab').addClass("active");
 		var studentDash = new StudentDashContainerView();
 		$('.main').append(studentDash.render().el);
+
+		//calendar small view - same as trainer atm.
+		$('#calendar').fullCalendar({
+	      theme: true,
+	      header: {
+	        left: 'prev,next today',
+	        center: 'title',
+	        right: 'month,agendaWeek,agendaDay'
+	      },
+	      defaultDate: '2016-01-12',
+	      editable: true,
+	      eventLimit: true, // allow "more" link when too many events
+	      events: [
+	        {
+	          title: 'All Day Event',
+	          start: '2016-01-01'
+	        }
+	      ]
+  	});
 
 		//activities list
 		var activities = new Activities();
