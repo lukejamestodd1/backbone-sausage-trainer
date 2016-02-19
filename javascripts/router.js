@@ -120,6 +120,16 @@ var Router = Backbone.Router.extend({
 		$('#dashTab').addClass("active");
 		var trainerDash = new TrainerDashContainerView();
 		$('.main').append(trainerDash.render().el);
+
+		//activities list
+		var activities = new Activities();
+		activities.fetch().done(function() {
+			activities.each(function(instance) {
+				var activityItem = new StudentActivityItemView({ model: instance});
+				$('.userColumn').css('display', 'none');
+				$('.activities-list').append(activityItem.render().el);
+			});
+		});
 	},
 
 	trainerActivitiesList: function(){
@@ -228,6 +238,16 @@ var Router = Backbone.Router.extend({
 		$('#dashTab').addClass("active");
 		var studentDash = new StudentDashContainerView();
 		$('.main').append(studentDash.render().el);
+
+		//activities list
+		var activities = new Activities();
+		activities.fetch().done(function() {
+			activities.each(function(instance) {
+				var activityItem = new StudentActivityItemView({ model: instance});
+				$('.userColumn').css('display', 'none');
+				$('.activities-list').append(activityItem.render().el);
+			});
+		}); 
 	},
 
 	studentActivitiesList: function(){
