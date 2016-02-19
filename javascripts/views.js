@@ -55,6 +55,18 @@ var LoginFormView = Backbone.View.extend({
   }
 });
 
+//for signup area - static atm
+var SignupView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'container',
+  template: $('#signupTemplate').html(),
+  render: function(){
+    var html = Mustache.render(this.template);
+    this.$el.html(html);
+    return this;
+  }
+});
+
 //for trainer header title and controls
 var MenuHeaderView = Backbone.View.extend({
   tagName: 'div',

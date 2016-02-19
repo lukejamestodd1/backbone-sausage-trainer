@@ -128,7 +128,7 @@
       <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         <form>
           <h2>Login</h2>
-          <h4>No account? Sign up <a href="">here</a></h4>
+          <h4>No account? Sign up <a href="#signup">here</a></h4>
           <hr class="colorgraph">
           <div class="row">
             <div class="form-group">
@@ -155,10 +155,56 @@
   </div>
 </script>
 
+<script id="signupTemplate" type="text/MustacheTemplate">
+  <div class="sign-up-form-box">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-sm-offset-2 col-md-offset-3">
+          <form>
+            <h2>Sign Up</h2>
+            <h4>Already have an account? Login <a href="#login">here</a></h4>
+            <hr class="colorgraph">
+            <div class="row">
+              <div class="form-group">
+                <label for="">Username</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label for="">Password Confirmation</label>
+                <input placeholder="Required" class="form-control input-lg">
+              </div>
+              <div class="form-group">
+                <label>Add a photo</label>
+                <input type="file">
+              </div>
+              <div class="btn-group-verical" role="group">
+                <label for="">Select those that apply to you: </label>
+                <input type="checkbox">  I am an instructor
+                <input type="checkbox">  I am a student
+              </div>
+            </div>
+
+            <hr class="colorgraph">
+            <div class="row form-btn">
+              <div class="col-xs-12 col-md-6 col-md-offset-3"><button>Sign Up</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</script>
+
 <script id="trainer-dashboard-template" type="text/underscoreTemplate">
       <div class="row">
         <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
-          <h1>Space for new homepage functionality</h1>
+          <h1>Welcome back, Sausage</h1>
         </div>
         <!-- Calendar Here -->
         <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
@@ -188,7 +234,7 @@
 <script id="student-dashboard-template" type="text/underscoreTemplate">
       <div class="row">
         <div class="title-colourgraph col-xs-12 col-sm-12 col-md-9">
-          <h1>Space for new homepage functionality</h1>
+          <h1>Welcome back, Sausage</h1>
         </div>
         <!-- Calendar Here -->
         <div class="calendar-box col-xs-12 col-sm-12 col-md-3">
@@ -349,9 +395,9 @@
     <p>{{ description }}</p>
     <h3>Current attendees</h3>
     <p>{{ participant_count }}</p>
-    <h3>Current fees: {{ cost }}</h3>
-    <button>Edit this class</button>
-    <button>Delete this class</button>
+    <h3 id="cost">Current fees: {{ cost }}</h3>
+    <button id="editButton">Edit this class</button>
+    <button id="deleteButton">Delete this class</button>
 </script>
 
 <script id="student-activity-detail-template" type="text/mustacheTemplate">

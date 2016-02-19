@@ -109,6 +109,9 @@ var Router = Backbone.Router.extend({
 	signUp: function(){
 		setupBody();
 
+		var signupView = new SignupView();
+		$('body').append(signupView.render().el);
+
 		var footer = new FooterView();
     $('body').append(footer.render().el);
 	},
@@ -314,12 +317,16 @@ var Router = Backbone.Router.extend({
 	},
 
 	studentActivityDetails: function(id){
+		//this is just a copy of 'trainer activity detail view' atm
+		//buttons changed using ids for buttons
 		setupBody();
-		var activityItem = new Activity({id: id});
+		var activityItem = new Activity({id: id });
 		activityItem.fetch().done(function(){
-			//just using trainer template for this atm
-			var studentActivityDetails = new ActivityDetailView({model: activityItem});
-			$('.main').append(studentActivityDetails.render().el);
+			var trainerActivityDetails = new ActivityDetailView({model: activityItem});
+
+			$('body').append(trainerActivityDetails.render().el);
+			$('#editButton').html('Book this class');
+			$('#deleteButton').html('Message Instructor');
 		});
 	},
 
